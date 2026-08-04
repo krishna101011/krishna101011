@@ -22,7 +22,7 @@ $ status: syncing... (this line updates itself — see .github/workflows)
 # CURRENT:END
 
 [0;32m$[0m echo $CONTACT
-> your-email@example.dev · github.com/your-username
+> your-krishnamishra101011@gmail.com.dev · github.com/krishna101011
 ```
 
 <sub>the line above updates itself every 6 hours off my latest public commit — no manual editing, see <code>scripts/update_readme.py</code></sub>

@@ -1,4 +1,4 @@
-name: Sync currently-building line
+name: Sync profile data
 
 on:
   schedule:
@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so render_repl_block.py can look up each dist file's last-changed commit
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,13 +33,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_readme.py
 
+      - name: Render language stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/langstats.py
+
+      - name: Render REPL block
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_repl_block.py
+
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet README.md; then
-            git add README.md
-            git commit -m "chore: sync currently-building line [skip ci]"
+          if ! git diff --quiet -- README.md currently_building.txt dist/langstats-dark.svg dist/langstats-light.svg; then
+            git add README.md currently_building.txt dist/langstats-dark.svg dist/langstats-light.svg
+            git commit -m "chore: sync profile data [skip ci]"
             git push
           else
             echo "No change — skipping commit."

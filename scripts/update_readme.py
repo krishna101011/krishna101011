@@ -1,24 +1,23 @@
 """
-Pulls the most recent public push event for GH_USERNAME and rewrites the
-"currently building" block in README.md between two marker lines.
+Pulls the most recent public push event for GH_USERNAME and writes the
+"currently building" status line to currently_building.txt, which
+krishna.py's currently_building() reads.
 
 Runs unattended inside GitHub Actions — see .github/workflows/update-readme.yml
 """
 from __future__ import annotations
 
 import os
-import re
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 import requests
 
 USERNAME = os.environ.get("GH_USERNAME")
 TOKEN = os.environ.get("GITHUB_TOKEN")
 
-README_PATH = "README.md"
-START_MARKER = "# CURRENT:START"
-END_MARKER = "# CURRENT:END"
+OUTPUT_PATH = Path(__file__).resolve().parent.parent / "currently_building.txt"
 
 
 def fetch_latest_push() -> dict | None:
@@ -61,30 +60,17 @@ def relative_time(iso_ts: str) -> str:
 
 def build_line(event: dict | None) -> str:
     if event is None:
-        return "$ status: heads down, nothing pushed publicly this week"
+        return "heads down, nothing pushed publicly this week"
     msg = event["message"][:72]
-    return f'$ status: {event["repo"]} — "{msg}" ({relative_time(event["created_at"])})'
+    return f'{event["repo"]} — "{msg}" ({relative_time(event["created_at"])})'
 
 
-def update_readme(line: str) -> bool:
-    with open(README_PATH, encoding="utf-8") as f:
-        content = f.read()
-
-    pattern = re.compile(
-        re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER), re.DOTALL
-    )
-    replacement = f"{START_MARKER}\n{line}\n{END_MARKER}"
-
-    if not pattern.search(content):
-        print(f"Markers not found in {README_PATH}", file=sys.stderr)
+def update_currently_building_file(line: str) -> bool:
+    previous = OUTPUT_PATH.read_text(encoding="utf-8") if OUTPUT_PATH.exists() else None
+    if previous == line:
         return False
 
-    new_content = pattern.sub(replacement, content)
-    if new_content == content:
-        return False
-
-    with open(README_PATH, "w", encoding="utf-8") as f:
-        f.write(new_content)
+    OUTPUT_PATH.write_text(line, encoding="utf-8")
     return True
 
 
@@ -95,8 +81,8 @@ def main() -> None:
 
     event = fetch_latest_push()
     line = build_line(event)
-    changed = update_readme(line)
-    print("README updated." if changed else "No change needed.")
+    changed = update_currently_building_file(line)
+    print("currently_building.txt updated." if changed else "No change needed.")
 
 
 if __name__ == "__main__":

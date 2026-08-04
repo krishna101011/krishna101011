@@ -10,51 +10,59 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=sudo+make+me+a+sandwich;git+commit+-m+%22it+works+on+my+machine%22;print%28%22hello%2C+staff+engineer+%F0%9F%91%8B%22%29;currently%3A+arguing+with+a+semicolon)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
 
-[![Sync currently-building line](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
+[![Sync profile data](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
 [![Generate PySnake contribution animation](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml)
 
 </div>
 
-```ansi
-[0;32m$[0m whoami
-> student · builds things that teach other people to code
+**this profile has more automation than my actual homework does — and unlike the bash prompt this used to be, [krishna.py](krishna.py) is a real, importable module. Don’t believe it? Run it yourself.**
 
-[0;32m$[0m cat about.md
-> Currently deep in interactive learning tools — the kind that
-> talk back instead of just sitting there being a PDF.
-
-[0;32m$[0m cat skills.txt
-> Python · React · FastAPI · GitHub Actions · Anthropic API · async, mostly by accident
-
-[0;32m$[0m ls ./projects
-> (empty) — public repos are still in the oven. this one doesn't count.
-
-[0;32m$[0m cat currently_building.txt
-# CURRENT:START
-$ status: heads down, nothing pushed publicly this week
-# CURRENT:END
-
-[0;32m$[0m echo $CONTACT
-> krishnamishra101011@gmail.com · github.com/krishna101011
+<!-- REPL:START -->
+```pycon
+>>> import krishna
+>>> krishna.whoami()
+'student · builds things that teach other people to code'
+>>> krishna.currently_building()
+'heads down, nothing pushed publicly this week'
+>>> krishna.skills
+{'Python': 'primary language — this file included', 'React': 'frontend for the apps this profile links to', 'FastAPI': 'backend framework of choice', 'GitHub Actions': 'the thing that keeps this README from going stale', 'Anthropic API': 'used it to build an essay-feedback tool'}
+>>> krishna.projects
+[]
+>>> krishna.language_breakdown()
+{'Python': 100.0}
 ```
-
-<sub>the line above updates itself every 6 hours off my latest public commit — no manual editing, see <code>scripts/update_readme.py</code>. green check above means it actually ran.</sub>
-
----
 
 <div align="center">
 
-**this profile has more automation than my actual homework does.**
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-dark.svg?v=2011516" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=2011516" />
+  <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=2011516" width="400"/>
+</picture>
+
+<sub>one public repo, one language — the bar-chart equivalent of a strong opinion.</sub>
+
+</div>
+
+```pycon
+>>> import snake
+>>> snake.render()
+```
+
+<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg" />
-  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg" width="100%"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=2011516" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" />
+  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" width="100%"/>
 </picture>
 
 <sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
 
 </div>
+<!-- REPL:END -->
+
+<sub>the transcript above is real output, captured by importing <code>krishna.py</code> and calling each function — see <code>scripts/render_repl_block.py</code>. It refreshes every 6 hours off my latest public commit and live GitHub language stats. Green check above means it actually ran.</sub>
 
 ---
 

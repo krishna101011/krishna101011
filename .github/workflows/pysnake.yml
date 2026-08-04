@@ -1,0 +1,45 @@
+name: Generate PySnake contribution animation
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'   # twice a day - matches the README's caption, keep both in sync
+  workflow_dispatch: {}       # manual "run now" button in the Actions tab
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate the snake
+        # Stdlib only - no pip install needed. Fetches the public contribution
+        # calendar (no token, see scripts/pysnake/fetch_contributions.py) and
+        # exits non-zero if it can't parse a single day, which fails this
+        # step (and the job) rather than silently committing nothing new.
+        run: python -m scripts.pysnake.main ${{ github.repository_owner }}
+
+      - name: post-render check
+        run: python scripts/easter_egg.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- dist/; then
+            git add dist/pysnake-dark.svg dist/pysnake-light.svg
+            git commit -m "chore: regenerate pysnake [skip ci]"
+            git push
+          else
+            echo "No change - skipping commit."
+          fi

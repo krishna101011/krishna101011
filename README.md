@@ -20,7 +20,7 @@
 
 [0;32m$[0m cat currently_building.txt
 # CURRENT:START
-$ status: syncing... (this line updates itself — see .github/workflows)
+$ status: heads down, nothing pushed publicly this week
 # CURRENT:END
 
 [0;32m$[0m echo $CONTACT

@@ -38,6 +38,12 @@ REQUEST_TIMEOUT_SECONDS = 15
 _NO_CONTRIBUTIONS_RE = re.compile(r"^No contributions on")
 _COUNT_RE = re.compile(r"^(\d+)\s+contributions?\s+on")
 
+# The literal attribute/tag names this parser depends on. Checked as raw
+# substrings before the full parse — cheaper than running the parser, and
+# the error it produces says exactly what's missing instead of leaving
+# someone to work backwards from "the parser returned nothing."
+_REQUIRED_MARKUP_MARKERS = ("ContributionCalendar-day", "data-date", "tool-tip")
+
 
 class ContributionFetchError(RuntimeError):
     """Raised whenever the calendar can't be fetched or parsed - callers
@@ -89,6 +95,20 @@ def _parse_tooltip_count(text: str) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def _assert_markup_shape(html_text: str, url: str) -> None:
+    """Cheap sanity check, before the full parse: do the literal attribute/
+    tag names this parser depends on even appear in the page? Catches
+    partial drift (e.g. a renamed attribute on a class that's otherwise
+    unchanged) that the post-parse checks below would otherwise report as
+    a confusing "found no cells" even though cells were found."""
+    missing = [marker for marker in _REQUIRED_MARKUP_MARKERS if marker not in html_text]
+    if missing:
+        raise ContributionFetchError(
+            "GitHub's calendar markup changed — parser needs updating "
+            f"(missing {missing!r} in the fetched page, {len(html_text)} bytes from {url})"
+        )
+
+
 def fetch_calendar(username: str) -> list[dict]:
     """Return one entry per day, chronological order:
     {"date": "YYYY-MM-DD", "count": int}.
@@ -116,6 +136,7 @@ def fetch_calendar(username: str) -> list[dict]:
         raise ContributionFetchError(f"could not fetch {url}: {exc}") from exc
 
     html_text = html_bytes.decode("utf-8", errors="replace")
+    _assert_markup_shape(html_text, url)
 
     parser = _ContributionCalendarParser()
     parser.feed(html_text)

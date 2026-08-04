@@ -110,19 +110,26 @@ def build_transcript() -> str:
     )
 
 
-def update_readme() -> bool:
-    content = README_PATH.read_text(encoding="utf-8")
+def _replace_between_markers(content: str, block: str) -> tuple[str, bool]:
+    """Pure string transform, no filesystem — the part that actually needs
+    testing for "replaces exactly once, never duplicates"."""
     pattern = re.compile(re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER), re.DOTALL)
-
     if not pattern.search(content):
-        print(f"Markers not found in {README_PATH}", file=sys.stderr)
-        sys.exit(1)
+        raise ValueError(f"markers {START_MARKER!r}/{END_MARKER!r} not found")
 
-    block = build_transcript()
     replacement = f"{START_MARKER}\n{block}\n{END_MARKER}"
     new_content = pattern.sub(replacement, content)
+    return new_content, new_content != content
 
-    changed = new_content != content
+
+def update_readme() -> bool:
+    content = README_PATH.read_text(encoding="utf-8")
+    try:
+        new_content, changed = _replace_between_markers(content, build_transcript())
+    except ValueError as exc:
+        print(f"{exc} in {README_PATH}", file=sys.stderr)
+        sys.exit(1)
+
     if changed:
         README_PATH.write_text(new_content, encoding="utf-8")
     return changed

@@ -12,6 +12,7 @@
 
 [![Sync profile data](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
 [![Generate PySnake contribution animation](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml)
+[![Tests](https://github.com/krishna101011/krishna101011/actions/workflows/tests.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/tests.yml)
 
 </div>
 
@@ -63,6 +64,20 @@
 <!-- REPL:END -->
 
 <sub>the transcript above is real output, captured by importing <code>krishna.py</code> and calling each function — see <code>scripts/render_repl_block.py</code>. It refreshes every 6 hours off my latest public commit and live GitHub language stats. Green check above means it actually ran.</sub>
+
+---
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/architecture-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/architecture-light.svg" />
+  <img alt="Architecture diagram: the GitHub contribution calendar feeds pysnake.yml (fetch, engine, render, every 12 hours), which commits to main and, on completion, triggers update-readme.yml (every 6 hours otherwise) via a workflow_run event; both workflows commit to main." src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/architecture-light.svg" width="640"/>
+</picture>
+
+<sub>roughly what happens between a commit and a redrawn snake</sub>
+
+</div>
 
 ---
 

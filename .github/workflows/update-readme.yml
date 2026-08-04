@@ -6,12 +6,24 @@ on:
   workflow_dispatch: {}      # manual "run now" button in the Actions tab
   push:
     branches: [main]
+  workflow_run:
+    # GitHub suppresses push-triggered runs for commits made with the
+    # default GITHUB_TOKEN, so pysnake.yml's own bot commit does NOT
+    # cross-trigger this workflow via `push`. This does — it fires right
+    # after pysnake.yml finishes, so the cache-bust query string for the
+    # snake SVGs doesn't have to wait for the next 6h tick.
+    workflows: ["Generate PySnake contribution animation"]
+    types: [completed]
 
 permissions:
   contents: write
 
 jobs:
   update:
+    # workflow_run fires on every conclusion (success, failure, cancelled) —
+    # only actually run when the schedule/dispatch/push triggers fired, or
+    # when pysnake.yml completed successfully.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

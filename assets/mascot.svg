@@ -1,0 +1,72 @@
+<svg width="220" height="210" viewBox="0 0 220 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A small terminal-window character wearing a graduation cap and holding a cup of coffee, with a blinking cursor smile.">
+  <title>the profile mascot: a terminal that went to college</title>
+
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+
+    <!-- ground shadow -->
+    <ellipse cx="112" cy="196" rx="58" ry="8" fill="#010409" opacity="0.35"/>
+
+    <!-- feet -->
+    <rect x="88" y="158" width="12" height="26" rx="6" fill="#238636"/>
+    <rect x="128" y="158" width="12" height="26" rx="6" fill="#238636"/>
+    <ellipse cx="94" cy="187" rx="14" ry="7" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <ellipse cx="134" cy="187" rx="14" ry="7" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+
+    <!-- left arm + coffee mug -->
+    <g>
+      <rect x="34" y="86" width="46" height="10" rx="5" fill="#238636" transform="rotate(-18 34 86)"/>
+      <g transform="translate(18,98)">
+        <path d="M2 2 q-2 -6 2 -8 q2 4 0 8" stroke="#8b949e" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.2s" repeatCount="indefinite"/>
+        </path>
+        <path d="M8 0 q-2 -7 2 -9 q2 5 0 9" stroke="#8b949e" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.2s" repeatCount="indefinite"/>
+        </path>
+        <rect x="0" y="4" width="20" height="17" rx="2.5" fill="#f0f6fc"/>
+        <rect x="1.5" y="4" width="17" height="4" fill="#c9d1d9"/>
+        <path d="M20 8 h5 a5 5 0 0 1 0 9 h-5" fill="none" stroke="#f0f6fc" stroke-width="3"/>
+      </g>
+    </g>
+
+    <!-- right arm, a little wave -->
+    <rect x="150" y="76" width="46" height="10" rx="5" fill="#238636" transform="rotate(28 150 76)"/>
+
+    <!-- terminal body -->
+    <rect x="56" y="44" width="112" height="118" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="3"/>
+
+    <!-- title bar -->
+    <path d="M56 60 v-2 a16 16 0 0 1 16 -16 h80 a16 16 0 0 1 16 16 v2 z" fill="#161b22"/>
+    <circle cx="72" cy="52" r="4" fill="#f85149"/>
+    <circle cx="85" cy="52" r="4" fill="#d29922"/>
+    <circle cx="98" cy="52" r="4" fill="#3fb950"/>
+
+    <!-- screen -->
+    <rect x="64" y="68" width="96" height="86" rx="7" fill="#010409"/>
+
+    <!-- eyes -->
+    <circle cx="92" cy="100" r="6.5" fill="#3fb950">
+      <animate attributeName="ry" values="6.5;0.6;6.5" keyTimes="0;0.5;1" dur="4s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="132" cy="100" r="6.5" fill="#3fb950">
+      <animate attributeName="ry" values="6.5;0.6;6.5" keyTimes="0;0.5;1" dur="4s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- smile -->
+    <path d="M88 124 q24 20 48 0" stroke="#3fb950" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+
+    <!-- blinking text cursor, like it's mid-thought -->
+    <rect x="139" y="122" width="8" height="16" fill="#3fb950">
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- graduation cap -->
+    <g>
+      <polygon points="112,4 172,28 112,52 52,28" fill="#161b22" stroke="#3fb950" stroke-width="2.5"/>
+      <rect x="106" y="28" width="12" height="16" rx="2" fill="#161b22" stroke="#3fb950" stroke-width="2.5"/>
+      <circle cx="172" cy="28" r="3" fill="#3fb950"/>
+      <line x1="172" y1="28" x2="180" y2="54" stroke="#3fb950" stroke-width="2"/>
+      <circle cx="180" cy="58" r="5" fill="#d29922"/>
+    </g>
+  </g>
+</svg>

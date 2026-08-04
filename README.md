@@ -8,7 +8,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=sudo+make+me+a+sandwich;git+commit+-m+%22it+works+on+my+machine%22;print%28%22hello%2C+staff+engineer+%F0%9F%91%8B%22%29;currently%3A+arguing+with+a+semicolon)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=sudo+make+me+a+sandwich;git+commit+-m+%22it+works+on+my+machine%22;print%28%22hello%2C+staff+engineer+%F0%9F%91%8B%22%29;plot+twist%3A+it+was+a+semicolon)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
 
 [![Sync profile data](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
 [![Generate PySnake contribution animation](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml)
@@ -45,8 +45,8 @@
 </div>
 
 ```pycon
->>> import snake
->>> snake.render()
+>>> krishna.snake.render()
+'already rendered: pysnake-dark.svg (33608B), pysnake-light.svg (33608B)'
 ```
 
 <div align="center">

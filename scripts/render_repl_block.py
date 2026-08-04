@@ -88,7 +88,7 @@ def build_transcript() -> str:
         light_sha=_last_changed_sha("dist/langstats-light.svg"),
     )
 
-    snake_lines = [">>> import snake", ">>> snake.render()"]
+    snake_lines = [_repl_line("snake.render()", krishna.snake.render())]
 
     snake_picture = SNAKE_PICTURE_TEMPLATE.format(
         raw=RAW_BASE,

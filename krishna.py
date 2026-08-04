@@ -41,6 +41,24 @@ skills: dict[str, str] = {
 projects: list = []  # public repos are still in the oven — this one doesn't count
 
 
+class Snake:
+    """A handle onto the already-generated PySnake SVGs (see
+    scripts/pysnake/). render() doesn't re-run the scrape+render pipeline
+    here — that needs a live fetch of GitHub's contribution calendar, which
+    belongs in the pysnake workflow, not in a README demo — it reports on
+    what's actually sitting in dist/ right now."""
+
+    def render(self) -> str:
+        paths = sorted((_ROOT / "dist").glob("pysnake-*.svg"))
+        if not paths:
+            return "no pysnake SVGs on disk yet — run scripts/pysnake/main.py"
+        rendered = ", ".join(f"{p.name} ({p.stat().st_size}B)" for p in paths)
+        return f"already rendered: {rendered}"
+
+
+snake = Snake()
+
+
 def _github_headers() -> dict[str, str]:
     headers = {"Accept": "application/vnd.github+json"}
     token = os.environ.get("GITHUB_TOKEN")
@@ -88,6 +106,7 @@ def _demo() -> None:
         ("skills", skills),
         ("projects", projects),
         ("language_breakdown()", language_breakdown()),
+        ("snake.render()", snake.render()),
     ):
         print(f">>> krishna.{expr}")
         print(repr(value))

@@ -35,9 +35,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-dark.svg?v=2011516" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=2011516" />
-  <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=2011516" width="400"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-dark.svg?v=a8c0d21" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" />
+  <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" width="400"/>
 </picture>
 
 <sub>one public repo, one language — the bar-chart equivalent of a strong opinion.</sub>

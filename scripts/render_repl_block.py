@@ -39,9 +39,6 @@ CHIP_TEMPLATE = """<picture>
   <img alt="{label}" src="{raw}/assets/chip-{name}-light.svg"/>
 </picture>"""
 
-# Dry, not padded — see scripts/langstats.py.
-LANGSTATS_CAPTION = "one public repo, one language — the bar-chart equivalent of a strong opinion."
-
 # Non-negotiable: this is the one sentence that substantiates the whole
 # custom-engine effort over a third-party action. Don't paraphrase it.
 SNAKE_CAPTION = (
@@ -94,16 +91,32 @@ def _repl_line(expr: str, value: object) -> str:
     return f">>> krishna.{expr}\n{value!r}"
 
 
+def _langstats_caption(repo_count: int, language_count: int) -> str:
+    """Templated off the real counts so this never goes stale the way a
+    hardcoded "one public repo, one language" would the moment either
+    number changes — see krishna.repo_count() / krishna.language_breakdown()."""
+    if repo_count == 1 and language_count == 1:
+        return "one public repo, one language — the bar-chart equivalent of a strong opinion."
+
+    repo_word = "repo" if repo_count == 1 else "repos"
+    language_word = "language" if language_count == 1 else "languages"
+    return f"{repo_count} public {repo_word}, {language_count} {language_word} — draw your own conclusions."
+
+
 def build_transcript() -> str:
+    breakdown = krishna.language_breakdown()
+
     lines = [
         ">>> import krishna",
         _repl_line("whoami()", krishna.whoami()),
         _repl_line("currently_building()", krishna.currently_building()),
         _repl_line("skills", krishna.skills),
         _repl_line("projects", krishna.projects),
-        _repl_line("language_breakdown()", krishna.language_breakdown()),
+        _repl_line("language_breakdown()", breakdown),
         _repl_line("snake.render()", krishna.snake.render()),
     ]
+
+    langstats_caption = _langstats_caption(krishna.repo_count(), len(breakdown))
 
     langstats_picture = LANGSTATS_PICTURE_TEMPLATE.format(
         raw=RAW_BASE,
@@ -123,7 +136,7 @@ def build_transcript() -> str:
         f'<div align="center">\n\n'
         f"{_chip('langstats')}\n\n"
         f"{langstats_picture}\n\n"
-        f"<sub>{LANGSTATS_CAPTION}</sub>\n\n"
+        f"<sub>{langstats_caption}</sub>\n\n"
         "</div>\n\n"
         f'<div align="center">\n\n'
         f"{_chip('snake')}\n\n"

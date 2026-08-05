@@ -2,7 +2,7 @@
 live krishna.py calls it's normally fed by."""
 import pytest
 
-from scripts.render_repl_block import END_MARKER, START_MARKER, _replace_between_markers
+from scripts.render_repl_block import END_MARKER, START_MARKER, _langstats_caption, _replace_between_markers
 
 
 def test_replace_between_markers_inserts_new_content():
@@ -36,3 +36,21 @@ def test_replace_between_markers_does_not_duplicate_on_repeated_calls():
 def test_replace_between_markers_raises_when_markers_missing():
     with pytest.raises(ValueError):
         _replace_between_markers("no markers in this content at all", "block")
+
+
+def test_langstats_caption_keeps_the_specific_wording_for_the_one_one_case():
+    assert _langstats_caption(1, 1) == (
+        "one public repo, one language — the bar-chart equivalent of a strong opinion."
+    )
+
+
+@pytest.mark.parametrize(
+    ("repo_count", "language_count", "expected"),
+    [
+        (1, 3, "1 public repo, 3 languages — draw your own conclusions."),
+        (5, 1, "5 public repos, 1 language — draw your own conclusions."),
+        (4, 7, "4 public repos, 7 languages — draw your own conclusions."),
+    ],
+)
+def test_langstats_caption_pluralizes_correctly_for_other_counts(repo_count, language_count, expected):
+    assert _langstats_caption(repo_count, language_count) == expected

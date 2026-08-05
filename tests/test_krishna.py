@@ -50,3 +50,9 @@ def test_snake_render_returns_a_non_empty_string():
     result = krishna.snake.render()
     assert isinstance(result, str)
     assert result
+
+
+def test_repo_count_returns_a_positive_int():
+    result = krishna.repo_count()
+    assert isinstance(result, int)
+    assert result >= 1  # this profile repo is always at least one of them

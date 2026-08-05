@@ -67,6 +67,22 @@ def _github_headers() -> dict[str, str]:
     return headers
 
 
+def repo_count() -> int:
+    """How many public repos GET /users/{username}/repos returns right now
+    — same source language_breakdown() sums bytes over, kept as its own
+    cheap call (no per-repo languages_url fetches) so callers who only need
+    the count don't pay for the rest."""
+    headers = _github_headers()
+    resp = requests.get(
+        f"{GITHUB_API}/users/{USERNAME}/repos",
+        headers=headers,
+        params={"per_page": 100, "type": "owner"},
+        timeout=10,
+    )
+    resp.raise_for_status()
+    return len(resp.json())
+
+
 def language_breakdown() -> dict[str, float]:
     """Sums `language` bytes (via each repo's languages_url) across every
     public repo and returns each language's share as a percentage, sorted
@@ -105,6 +121,7 @@ def _demo() -> None:
         ("currently_building()", currently_building()),
         ("skills", skills),
         ("projects", projects),
+        ("repo_count()", repo_count()),
         ("language_breakdown()", language_breakdown()),
         ("snake.render()", snake.render()),
     ):

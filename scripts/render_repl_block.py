@@ -39,6 +39,16 @@ CHIP_TEMPLATE = """<picture>
   <img alt="{label}" src="{raw}/assets/chip-{name}-light.svg"/>
 </picture>"""
 
+# Dry, not padded — see scripts/langstats.py.
+LANGSTATS_CAPTION = "one public repo, one language — the bar-chart equivalent of a strong opinion."
+
+# Non-negotiable: this is the one sentence that substantiates the whole
+# custom-engine effort over a third-party action. Don't paraphrase it.
+SNAKE_CAPTION = (
+    "generated twice a day by <code>scripts/pysnake/</code> — a snake engine "
+    "I wrote myself, not a third-party action"
+)
+
 SNAKE_PICTURE_TEMPLATE = """<picture>
   <source media="(prefers-color-scheme: dark)" srcset="{raw}/dist/pysnake-dark.svg?v={dark_sha}" />
   <source media="(prefers-color-scheme: light)" srcset="{raw}/dist/pysnake-light.svg?v={light_sha}" />
@@ -113,10 +123,12 @@ def build_transcript() -> str:
         f'<div align="center">\n\n'
         f"{_chip('langstats')}\n\n"
         f"{langstats_picture}\n\n"
+        f"<sub>{LANGSTATS_CAPTION}</sub>\n\n"
         "</div>\n\n"
         f'<div align="center">\n\n'
         f"{_chip('snake')}\n\n"
         f"{snake_picture}\n\n"
+        f"<sub>{SNAKE_CAPTION}</sub>\n\n"
         "</div>"
     )
 

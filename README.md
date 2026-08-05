@@ -55,6 +55,8 @@
   <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" width="400"/>
 </picture>
 
+<sub>one public repo, one language — the bar-chart equivalent of a strong opinion.</sub>
+
 </div>
 
 <div align="center">
@@ -70,6 +72,8 @@
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" />
   <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" width="100%"/>
 </picture>
+
+<sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
 
 </div>
 <!-- REPL:END -->

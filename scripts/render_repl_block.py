@@ -26,10 +26,18 @@ END_MARKER = "<!-- REPL:END -->"
 
 RAW_BASE = "https://raw.githubusercontent.com/krishna101011/krishna101011/main"
 
-# Dry, not padded — see scripts/langstats.py.
-LANGSTATS_CAPTION = (
-    "one public repo, one language — the bar-chart equivalent of a strong opinion."
-)
+# Chip labels — see scripts/render_chip.py for the CHIPS this must match.
+CHIP_LABELS = {
+    "repl": "krishna.py — python3",
+    "langstats": "language_breakdown()",
+    "snake": "snake.render()",
+}
+
+CHIP_TEMPLATE = """<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="{raw}/assets/chip-{name}-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="{raw}/assets/chip-{name}-light.svg" />
+  <img alt="{label}" src="{raw}/assets/chip-{name}-light.svg"/>
+</picture>"""
 
 SNAKE_PICTURE_TEMPLATE = """<picture>
   <source media="(prefers-color-scheme: dark)" srcset="{raw}/dist/pysnake-dark.svg?v={dark_sha}" />
@@ -42,6 +50,10 @@ LANGSTATS_PICTURE_TEMPLATE = """<picture>
   <source media="(prefers-color-scheme: light)" srcset="{raw}/dist/langstats-light.svg?v={light_sha}" />
   <img alt="a horizontal bar chart of language bytes across my public repositories" src="{raw}/dist/langstats-light.svg?v={light_sha}" width="400"/>
 </picture>"""
+
+
+def _chip(name: str) -> str:
+    return CHIP_TEMPLATE.format(raw=RAW_BASE, name=name, label=CHIP_LABELS[name])
 
 
 def _last_changed_sha(relative_path: str) -> str:
@@ -73,13 +85,14 @@ def _repl_line(expr: str, value: object) -> str:
 
 
 def build_transcript() -> str:
-    identity_lines = [
+    lines = [
         ">>> import krishna",
         _repl_line("whoami()", krishna.whoami()),
         _repl_line("currently_building()", krishna.currently_building()),
         _repl_line("skills", krishna.skills),
         _repl_line("projects", krishna.projects),
         _repl_line("language_breakdown()", krishna.language_breakdown()),
+        _repl_line("snake.render()", krishna.snake.render()),
     ]
 
     langstats_picture = LANGSTATS_PICTURE_TEMPLATE.format(
@@ -88,8 +101,6 @@ def build_transcript() -> str:
         light_sha=_last_changed_sha("dist/langstats-light.svg"),
     )
 
-    snake_lines = [_repl_line("snake.render()", krishna.snake.render())]
-
     snake_picture = SNAKE_PICTURE_TEMPLATE.format(
         raw=RAW_BASE,
         dark_sha=_last_changed_sha("dist/pysnake-dark.svg"),
@@ -97,15 +108,15 @@ def build_transcript() -> str:
     )
 
     return (
-        f"```pycon\n{chr(10).join(identity_lines)}\n```\n\n"
-        '<div align="center">\n\n'
+        f"{_chip('repl')}\n\n"
+        f"```pycon\n{chr(10).join(lines)}\n```\n\n"
+        f'<div align="center">\n\n'
+        f"{_chip('langstats')}\n\n"
         f"{langstats_picture}\n\n"
-        f"<sub>{LANGSTATS_CAPTION}</sub>\n\n"
         "</div>\n\n"
-        f"```pycon\n{chr(10).join(snake_lines)}\n```\n\n"
-        '<div align="center">\n\n'
+        f'<div align="center">\n\n'
+        f"{_chip('snake')}\n\n"
         f"{snake_picture}\n\n"
-        "<sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>\n\n"
         "</div>"
     )
 

@@ -8,7 +8,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=sudo+make+me+a+sandwich;git+commit+-m+%22it+works+on+my+machine%22;print%28%22hello%2C+staff+engineer+%F0%9F%91%8B%22%29;plot+twist%3A+it+was+a+semicolon)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=import+this;import+antigravity;git+commit+-m+%22it+works+on+my+machine%22;krishna.snake.render%28%29++%23+patience.+it%27s+eating+asynchronously.)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
 
 [![Sync profile data](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
 [![Generate PySnake contribution animation](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml)
@@ -19,6 +19,12 @@
 **this profile has more automation than my actual homework does — and unlike the bash prompt this used to be, [krishna.py](krishna.py) is a real, importable module. Don’t believe it? Run it yourself.**
 
 <!-- REPL:START -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-repl-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-repl-light.svg" />
+  <img alt="krishna.py — python3" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-repl-light.svg"/>
+</picture>
+
 ```pycon
 >>> import krishna
 >>> krishna.whoami()
@@ -31,21 +37,6 @@
 []
 >>> krishna.language_breakdown()
 {'Python': 100.0}
-```
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-dark.svg?v=a8c0d21" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" />
-  <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" width="400"/>
-</picture>
-
-<sub>one public repo, one language — the bar-chart equivalent of a strong opinion.</sub>
-
-</div>
-
-```pycon
 >>> krishna.snake.render()
 'already rendered: pysnake-dark.svg (33608B), pysnake-light.svg (33608B)'
 ```
@@ -53,12 +44,32 @@
 <div align="center">
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-light.svg" />
+  <img alt="language_breakdown()" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-light.svg"/>
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-dark.svg?v=a8c0d21" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" />
+  <img alt="a horizontal bar chart of language bytes across my public repositories" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/langstats-light.svg?v=a8c0d21" width="400"/>
+</picture>
+
+</div>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg" />
+  <img alt="snake.render()" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg"/>
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=2011516" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" />
   <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" width="100%"/>
 </picture>
-
-<sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
 
 </div>
 <!-- REPL:END -->

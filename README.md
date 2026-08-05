@@ -8,7 +8,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=650&lines=import+this;import+antigravity;git+commit+-m+%22it+works+on+my+machine%22;krishna.snake.render%28%29++%23+patience.+it%27s+eating+asynchronously.)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=2800&pause=900&color=3FB950&center=true&vCenter=true&width=820&lines=import+this;import+antigravity;git+commit+-m+%22it+works+on+my+machine%22;krishna.snake.render%28%29++%23+patience.+it%27s+eating+asynchronously.)](https://github.com/krishna101011/krishna101011/blob/main/scripts/easter_egg.py)
 
 [![Sync profile data](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/update-readme.yml)
 [![Generate PySnake contribution animation](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml/badge.svg)](https://github.com/krishna101011/krishna101011/actions/workflows/pysnake.yml)

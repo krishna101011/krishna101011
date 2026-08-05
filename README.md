@@ -38,7 +38,7 @@
 >>> krishna.language_breakdown()
 {'Python': 100.0}
 >>> krishna.snake.render()
-'already rendered: pysnake-dark.svg (33608B), pysnake-light.svg (33608B)'
+'already rendered: pysnake-dark.svg (33862B), pysnake-light.svg (33862B)'
 ```
 
 <div align="center">
@@ -66,9 +66,9 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=2011516" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" />
-  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=2011516" width="100%"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=e1309a7" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" />
+  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" width="100%"/>
 </picture>
 
 </div>

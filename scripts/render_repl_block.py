@@ -31,6 +31,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 import krishna  # noqa: E402
+from scripts.render_snake_loop import fed_label, gap_days_label  # noqa: E402
 
 README_PATH = REPO_ROOT / "README.md"
 SNAKE_START_MARKER = "<!-- SNAKE:START -->"
@@ -70,6 +71,17 @@ LANGSTATS_PICTURE_TEMPLATE = """<picture>
   <source media="(prefers-color-scheme: dark)" srcset="{raw}/dist/langstats-dark.svg?v={dark_sha}" />
   <source media="(prefers-color-scheme: light)" srcset="{raw}/dist/langstats-light.svg?v={light_sha}" />
   <img alt="a horizontal bar chart of language bytes across my public repositories" src="{raw}/dist/langstats-light.svg?v={light_sha}" width="400"/>
+</picture>"""
+
+# Not tied to live data (contribution counts, repo counts) — only to
+# engine.py's own constants, which change rarely — so unlike the pictures
+# above, no cache-bust sha; same convention as the architecture diagram.
+SNAKE_LOOP_CAPTION = "the actual thresholds from <code>scripts/pysnake/engine.py</code>, not hand-typed"
+
+SNAKE_LOOP_PICTURE_TEMPLATE = """<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="{raw}/assets/snake-loop-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="{raw}/assets/snake-loop-light.svg" />
+  <img alt="State diagram: EATING loops on normal days, moves to IDLE on a {gap}, moves to FED on a {fed}, and both return to EATING." src="{raw}/assets/snake-loop-light.svg" width="500"/>
 </picture>"""
 
 
@@ -138,9 +150,17 @@ def build_transcript() -> str:
         light_sha=_last_changed_sha("dist/langstats-light.svg"),
     )
 
+    snake_loop_picture = SNAKE_LOOP_PICTURE_TEMPLATE.format(
+        raw=RAW_BASE, gap=gap_days_label(), fed=fed_label()
+    )
+
     return (
         f"{_chip('repl')}\n\n"
         f"```pycon\n{chr(10).join(lines)}\n```\n\n"
+        f'<div align="center">\n\n'
+        f"{snake_loop_picture}\n\n"
+        f"<sub>{SNAKE_LOOP_CAPTION}</sub>\n\n"
+        "</div>\n\n"
         f'<div align="center">\n\n'
         f"{_chip('langstats')}\n\n"
         f"{langstats_picture}\n\n"

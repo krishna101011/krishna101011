@@ -60,6 +60,18 @@
 <div align="center">
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/snake-loop-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/snake-loop-light.svg" />
+  <img alt="State diagram: EATING loops on normal days, moves to IDLE on a gap &gt; 10 days, moves to FED on a top 10% day, and both return to EATING." src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/snake-loop-light.svg" width="500"/>
+</picture>
+
+<sub>the actual thresholds from <code>scripts/pysnake/engine.py</code>, not hand-typed</sub>
+
+</div>
+
+<div align="center">
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-light.svg" />
   <img alt="language_breakdown()" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-langstats-light.svg"/>

@@ -1,10 +1,22 @@
 """Runs krishna.py for real and writes the captured output into README.md
-as a Python REPL transcript, between two HTML comment markers — same
-technique update_readme.py uses for the currently-building line, just
-scoped to the whole identity block.
+between two independent pairs of HTML comment markers — same technique
+update_readme.py uses for the currently-building line, just scoped to two
+regions instead of one:
 
-Also owns cache-busting for every generated-SVG <picture> embed in that
-block: each image URL gets a `?v={sha}` query string set to the short SHA
+  <!-- SNAKE:START/END --> — the pysnake chip + picture + caption, in hero
+  position right under the header banner.
+  <!-- REPL:START/END --> — the identity REPL transcript + the language
+  chart. The snake picture itself does NOT also appear here — it's already
+  shown once, up top; the REPL block still prints krishna.snake.render()'s
+  real return value as text, since that's honest output from a real call,
+  just not a second copy of the image.
+
+Both regions are read, substituted, and written in one pass in
+update_readme() — a single read, two substitutions in memory, one write —
+so a run can't leave the file with only one region updated.
+
+Also owns cache-busting for every generated-SVG <picture> embed in these
+blocks: each image URL gets a `?v={sha}` query string set to the short SHA
 of the commit that last actually changed that specific file (via `git log`),
 so GitHub's CDN can't keep serving a stale image after the file changes.
 """
@@ -21,8 +33,10 @@ sys.path.insert(0, str(REPO_ROOT))
 import krishna  # noqa: E402
 
 README_PATH = REPO_ROOT / "README.md"
-START_MARKER = "<!-- REPL:START -->"
-END_MARKER = "<!-- REPL:END -->"
+SNAKE_START_MARKER = "<!-- SNAKE:START -->"
+SNAKE_END_MARKER = "<!-- SNAKE:END -->"
+REPL_START_MARKER = "<!-- REPL:START -->"
+REPL_END_MARKER = "<!-- REPL:END -->"
 
 RAW_BASE = "https://raw.githubusercontent.com/krishna101011/krishna101011/main"
 
@@ -124,12 +138,6 @@ def build_transcript() -> str:
         light_sha=_last_changed_sha("dist/langstats-light.svg"),
     )
 
-    snake_picture = SNAKE_PICTURE_TEMPLATE.format(
-        raw=RAW_BASE,
-        dark_sha=_last_changed_sha("dist/pysnake-dark.svg"),
-        light_sha=_last_changed_sha("dist/pysnake-light.svg"),
-    )
-
     return (
         f"{_chip('repl')}\n\n"
         f"```pycon\n{chr(10).join(lines)}\n```\n\n"
@@ -137,38 +145,62 @@ def build_transcript() -> str:
         f"{_chip('langstats')}\n\n"
         f"{langstats_picture}\n\n"
         f"<sub>{langstats_caption}</sub>\n\n"
-        "</div>\n\n"
-        f'<div align="center">\n\n'
-        f"{_chip('snake')}\n\n"
-        f"{snake_picture}\n\n"
-        f"<sub>{SNAKE_CAPTION}</sub>\n\n"
         "</div>"
     )
 
 
-def _replace_between_markers(content: str, block: str) -> tuple[str, bool]:
-    """Pure string transform, no filesystem — the part that actually needs
-    testing for "replaces exactly once, never duplicates"."""
-    pattern = re.compile(re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER), re.DOTALL)
-    if not pattern.search(content):
-        raise ValueError(f"markers {START_MARKER!r}/{END_MARKER!r} not found")
+def build_snake_block() -> str:
+    """The pysnake chip + picture + caption — hero position, right under
+    the header banner. Shown exactly once on the page; the REPL transcript
+    below still prints krishna.snake.render()'s real text return value,
+    just not this image a second time."""
+    snake_picture = SNAKE_PICTURE_TEMPLATE.format(
+        raw=RAW_BASE,
+        dark_sha=_last_changed_sha("dist/pysnake-dark.svg"),
+        light_sha=_last_changed_sha("dist/pysnake-light.svg"),
+    )
 
-    replacement = f"{START_MARKER}\n{block}\n{END_MARKER}"
+    return (
+        f"{_chip('snake')}\n\n"
+        f"{snake_picture}\n\n"
+        f"<sub>{SNAKE_CAPTION}</sub>"
+    )
+
+
+def _replace_between_markers(content: str, start_marker: str, end_marker: str, block: str) -> tuple[str, bool]:
+    """Pure string transform, no filesystem — the part that actually needs
+    testing for "replaces exactly once, never duplicates," independently
+    per marker pair so one region's write can't bleed into another's."""
+    pattern = re.compile(re.escape(start_marker) + r".*?" + re.escape(end_marker), re.DOTALL)
+    if not pattern.search(content):
+        raise ValueError(f"markers {start_marker!r}/{end_marker!r} not found")
+
+    replacement = f"{start_marker}\n{block}\n{end_marker}"
     new_content = pattern.sub(replacement, content)
     return new_content, new_content != content
 
 
 def update_readme() -> bool:
+    """One read, two substitutions in memory, one write — so a run can
+    never leave the file with only the snake block or only the REPL block
+    updated."""
     content = README_PATH.read_text(encoding="utf-8")
-    try:
-        new_content, changed = _replace_between_markers(content, build_transcript())
-    except ValueError as exc:
-        print(f"{exc} in {README_PATH}", file=sys.stderr)
-        sys.exit(1)
+    changed_any = False
 
-    if changed:
-        README_PATH.write_text(new_content, encoding="utf-8")
-    return changed
+    for start_marker, end_marker, block in (
+        (SNAKE_START_MARKER, SNAKE_END_MARKER, build_snake_block()),
+        (REPL_START_MARKER, REPL_END_MARKER, build_transcript()),
+    ):
+        try:
+            content, changed = _replace_between_markers(content, start_marker, end_marker, block)
+        except ValueError as exc:
+            print(f"{exc} in {README_PATH}", file=sys.stderr)
+            sys.exit(1)
+        changed_any = changed_any or changed
+
+    if changed_any:
+        README_PATH.write_text(content, encoding="utf-8")
+    return changed_any
 
 
 def main() -> None:

@@ -4,7 +4,23 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:238636&height=170&section=header&text=Krishna%20Mishra&fontSize=40&fontColor=3fb950&fontAlignY=38&desc=student%20%C2%B7%20builds%20things%20that%20talk%20back&descAlignY=58&descSize=16&descColor=8b949e&animation=fadeIn" width="100%" alt="header banner"/>
 
-<img src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/mascot.svg" width="150" alt="a small terminal-window mascot wearing a graduation cap and holding coffee, with a blinking cursor for a smile"/>
+<!-- SNAKE:START -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg" />
+  <img alt="snake.render()" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg"/>
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=e1309a7" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" />
+  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" width="100%"/>
+</picture>
+
+<sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
+<!-- SNAKE:END -->
+
+<img src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/mascot.svg" width="48" align="middle" alt="a small terminal-window mascot wearing a graduation cap and holding coffee, with a blinking cursor for a smile"/> **Krishna Mishra**
 
 <br/>
 
@@ -56,24 +72,6 @@
 </picture>
 
 <sub>one public repo, one language — the bar-chart equivalent of a strong opinion.</sub>
-
-</div>
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg" />
-  <img alt="snake.render()" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/assets/chip-snake-light.svg"/>
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=e1309a7" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" />
-  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=e1309a7" width="100%"/>
-</picture>
-
-<sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
 
 </div>
 <!-- REPL:END -->

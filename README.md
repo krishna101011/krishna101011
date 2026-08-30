@@ -12,9 +12,9 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=9040b9f" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=9040b9f" />
-  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=9040b9f" width="100%"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-dark.svg?v=663390d" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=663390d" />
+  <img alt="a Python-colored snake eating my contribution graph, one green square at a time" src="https://raw.githubusercontent.com/krishna101011/krishna101011/main/dist/pysnake-light.svg?v=663390d" width="100%"/>
 </picture>
 
 <sub>generated twice a day by <code>scripts/pysnake/</code> — a snake engine I wrote myself, not a third-party action</sub>
@@ -54,7 +54,7 @@
 >>> krishna.language_breakdown()
 {'Python': 100.0}
 >>> krishna.snake.render()
-'already rendered: pysnake-dark.svg (34063B), pysnake-light.svg (34063B)'
+'already rendered: pysnake-dark.svg (33661B), pysnake-light.svg (33661B)'
 ```
 
 <div align="center">

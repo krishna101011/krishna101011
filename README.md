@@ -1,12 +1,5 @@
-# KRISHNA // CONTROL ROOM
-
 ---
 
-## 01 // SYSTEM STATUS
+## 02 // CURRENT SIGNAL
 
-| FIELD | VALUE |
-|---|---|
-| PRIMARY LANGUAGE | Python |
-| SECONDARY | JavaScript / TypeScript / SQL |
-| MODE | Research · Build · Experiment |
-| STATUS | ONLINE |
+`FINANCE` · `TECHNOLOGY` · `AI` · `CYBERSECURITY` · `ANALYTICS` · `RESEARCH`

@@ -31,9 +31,9 @@
 ![GitHub Activity Market](./assets/activity-chart.svg)
 
 ---
-
 ## 04 // LIVE METRICS
 
+<!-- METRICS:START -->
 | METRIC | VALUE |
 |---|---:|
 | REPOSITORIES | Updating... |
@@ -41,9 +41,10 @@
 | STARS | Updating... |
 | FORKS | Updating... |
 | RECENT ACTIVITY | Updating... |
+| ACTIVITY INDEX | Updating... |
+<!-- METRICS:END -->
 
-_Data will be generated automatically from GitHub._
-
+_Data is generated automatically from GitHub._
 ---
 
 ## 05 // ACTIVITY GRID

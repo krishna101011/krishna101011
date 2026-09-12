@@ -101,7 +101,7 @@ viewBox="0 0 1000 400">
 </text>
 
 <polyline
-    points="515.0,344.4"
+    points="60.0,344.4 970.0,350.0"
     fill="none"
     stroke="#39e58c"
     stroke-width="4"
@@ -109,8 +109,14 @@ viewBox="0 0 1000 400">
     stroke-linejoin="round"/>
 
 <circle
-    cx="515.0"
+    cx="60.0"
     cy="344.4"
+    r="4"
+    fill="#39e58c"/>
+
+<circle
+    cx="970.0"
+    cy="350.0"
     r="4"
     fill="#39e58c"/>
 
@@ -129,6 +135,6 @@ viewBox="0 0 1000 400">
     fill="#7d8790"
     font-family="monospace"
     font-size="11">
-    2026-09-11
+    2026-09-12
 </text>
 </svg>

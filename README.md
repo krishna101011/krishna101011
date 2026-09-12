@@ -42,7 +42,7 @@
 | STARS | 0 |
 | FORKS | 0 |
 | RECENT ACTIVITY | 0 commits · 0 PRs · 0 issues |
-| ACTIVITY INDEX | 2/100 |
+| ACTIVITY INDEX | 0/100 |
 <!-- METRICS:END -->
 
 _Data is generated automatically from GitHub._

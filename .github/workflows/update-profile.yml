@@ -1,0 +1,60 @@
+name: Update Control Room
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Every day at 18:17 UTC = 23:47 IST
+    - cron: "17 18 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+
+      - name: Collect GitHub data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/collect_github_data.py
+
+      - name: Generate SVG assets
+        run: |
+          python scripts/generate_charts.py
+
+      - name: Update README metrics
+        run: |
+          python scripts/update_readme.py
+
+      - name: Show generated changes
+        run: |
+          git status --short
+
+      - name: Commit generated changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md data/ assets/
+
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update GitHub control room"
+
+      - name: Push generated changes
+        run: |
+          git push

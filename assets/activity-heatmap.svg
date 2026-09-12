@@ -1,0 +1,481 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="1000"
+height="250"
+viewBox="0 0 1000 250">
+<title>GitHub Activity Heatmap</title>
+<rect width="100%" height="100%" fill="#0b0f12"/>
+
+<text
+    x="60"
+    y="38"
+    fill="#e8edf2"
+    font-family="monospace"
+    font-size="22"
+    font-weight="bold">
+    ACTIVITY GRID
+</text>
+
+<rect
+    x="60"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#173b2b">
+    <title>
+        2026-09-11
+        — Activity Index: 2
+    </title>
+</rect>
+
+<rect
+    x="82"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="104"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="126"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="148"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="170"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="192"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="214"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="236"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="258"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="280"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="302"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="324"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="346"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="368"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="390"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="412"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="434"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="456"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="478"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="500"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="522"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="544"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="566"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="588"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="610"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="632"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="654"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="676"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="698"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="720"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="742"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="764"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="786"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<rect
+    x="808"
+    y="75"
+    width="18"
+    height="18"
+    rx="3"
+    fill="#161c21">
+    <title>
+        
+        — Activity Index: 0
+    </title>
+</rect>
+
+<text
+    x="60"
+    y="145"
+    fill="#7d8790"
+    font-family="monospace"
+    font-size="12">
+    REAL ACTIVITY · HISTORICAL SNAPSHOTS
+</text>
+</svg>

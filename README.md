@@ -1,95 +1,26 @@
 # KRISHNA // CONTROL ROOM
 
-> Personal research laboratory · GitHub analytics terminal · experiment archive
+![KRISHNA Control Room](./assets/control-header.svg)
 
----
-
-## 01 // SYSTEM STATUS
-
-| FIELD | VALUE |
-|---|---|
-| PRIMARY LANGUAGE | Python |
-| SECONDARY | JavaScript · TypeScript · SQL |
-| MODE | Research · Build · Experiment |
-| DATA SOURCE | GitHub |
-| STATUS | ONLINE |
-
----
-
-## 02 // CURRENT SIGNAL
-
-`FINANCE` · `TECHNOLOGY` · `AI` · `CYBERSECURITY` · `ANALYTICS` · `RESEARCH`
-
----
-
-## 03 // GITHUB ACTIVITY MARKET
-
-> GitHub activity visualized as a market-style signal.
->
-> This is a derived visualization, not a financial market and not an official GitHub metric.
+![System Status](./assets/system-status.svg)
 
 ![GitHub Activity Market](./assets/activity-chart.svg)
 
----
+![Live Telemetry](./assets/telemetry.svg)
 
-## 04 // LIVE METRICS
+![Current Signal](./assets/signals.svg)
 
-<!-- METRICS:START -->
-| METRIC | VALUE |
-|---|---:|
-| REPOSITORIES | 1 |
-| ACTIVE REPOSITORIES | 1 |
-| STARS | 0 |
-| FORKS | 0 |
-| RECENT ACTIVITY | 0 commits · 0 PRs · 0 issues |
-| ACTIVITY INDEX | 2/100 |
-<!-- METRICS:END -->
-
-_Data is generated automatically from GitHub._
-
----
-
-## 05 // ACTIVITY GRID
-
-![GitHub Activity Heatmap](./assets/activity-heatmap.svg)
-
----
-
-## 06 // REPOSITORY CONSTELLATION
+![Activity Grid](./assets/activity-heatmap.svg)
 
 ![Repository Constellation](./assets/repo-constellation.svg)
 
----
+![Active Lab](./assets/active-lab.svg)
 
-## 07 // ACTIVE LAB
+![Experiment Log](./assets/experiment-log.svg)
 
-### Growth Graph
+<details>
+<summary>HIDDEN ROOM // ACCESS</summary>
 
-**Personal performance analytics system**
+![Hidden Room](./assets/control-header.svg)
 
-- Goals & actuals
-- 0–100 Growth Score
-- Weekly / monthly / yearly / custom timelines
-- Historical data
-- Trading-style growth charts
-- AI review
-- Provider failover architecture
-- Local-first data storage
-
-[Open Growth Graph →](#)
-
----
-
-## 08 // ACTIVITY TIMELINE
-
-Historical GitHub activity collected over time.
-
-```text
-SYSTEM
-│
-├── Historical snapshots
-├── Repository activity
-├── Commit activity
-├── Pull requests
-├── Issues
-└── Repository events
+</details>

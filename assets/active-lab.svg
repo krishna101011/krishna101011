@@ -1,0 +1,254 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="1000"
+height="345"
+viewBox="0 0 1000 345">
+
+<title>Active Lab</title>
+
+<rect
+    width="100%"
+    height="100%"
+    rx="14"
+    fill="#07090C"/>
+
+<rect
+    x="1"
+    y="1"
+    width="998"
+    height="343"
+    rx="14"
+    fill="none"
+    stroke="#252C34"
+    stroke-width="2"/>
+
+<text
+    x="32"
+    y="36"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="2px">
+    06 // LAB
+</text>
+
+<text
+    x="32"
+    y="64"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    ACTIVE LAB
+</text>
+
+<circle
+    cx="952"
+    cy="48"
+    r="6"
+    fill="#39E58C"/>
+
+<text
+    x="938"
+    y="53"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    RUNNING
+</text>
+
+<line
+    x1="32"
+    y1="82"
+    x2="968"
+    y2="82"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="32"
+    y="119"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="16px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GROWTH GRAPH
+</text>
+
+<text
+    x="32"
+    y="148"
+    fill="#39D9FF"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    PERSONAL PERFORMANCE ANALYTICS
+</text>
+
+<circle
+    cx="32"
+    cy="186"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="46"
+    y="190"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    GOALS / ACTUALS
+</text>
+
+<circle
+    cx="487"
+    cy="186"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="501"
+    y="190"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    0–100 GROWTH SCORE
+</text>
+
+<circle
+    cx="32"
+    cy="216"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="46"
+    y="220"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    MULTI-TIMELINE ANALYSIS
+</text>
+
+<circle
+    cx="487"
+    cy="216"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="501"
+    y="220"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    HISTORICAL DATA
+</text>
+
+<circle
+    cx="32"
+    cy="246"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="46"
+    y="250"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    TRADING-STYLE CHARTS
+</text>
+
+<circle
+    cx="487"
+    cy="246"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="501"
+    y="250"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    AI REVIEW
+</text>
+
+<circle
+    cx="32"
+    cy="276"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="46"
+    y="280"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    PROVIDER FAILOVER
+</text>
+
+<circle
+    cx="487"
+    cy="276"
+    r="3"
+    fill="#39E58C"/>
+
+<text
+    x="501"
+    y="280"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    LOCAL-FIRST STORAGE
+</text>
+
+<text
+    x="32"
+    y="322"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    EXPERIMENT STATUS // ACTIVE DEVELOPMENT
+</text>
+</svg>

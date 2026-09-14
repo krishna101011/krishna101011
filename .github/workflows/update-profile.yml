@@ -32,6 +32,7 @@ jobs:
       - name: Generate SVG assets
         run: |
           python scripts/generate_charts.py
+          python scripts/generate_panels.py
 
       - name: Update README metrics
         run: |

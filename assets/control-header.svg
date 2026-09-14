@@ -1,0 +1,266 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="1000"
+height="210"
+viewBox="0 0 1000 210">
+
+<title>KRISHNA Control Room</title>
+
+<rect
+    width="100%"
+    height="100%"
+    rx="14"
+    fill="#07090C"/>
+
+<rect
+    x="1"
+    y="1"
+    width="998"
+    height="208"
+    rx="14"
+    fill="none"
+    stroke="#252C34"
+    stroke-width="2"/>
+
+<rect
+    x="32"
+    y="30"
+    width="5"
+    height="150"
+    rx="2"
+    fill="#39E58C"/>
+
+<text
+    x="58"
+    y="60"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="27px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="2px">
+    KRISHNA // CONTROL ROOM
+</text>
+
+<text
+    x="58"
+    y="88"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="2px">
+    GITHUB OPERATIONS // PERSONAL RESEARCH SYSTEM
+</text>
+
+<circle
+    cx="920"
+    cy="54"
+    r="7"
+    fill="#39E58C"/>
+
+<text
+    x="942"
+    y="58"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    LIVE
+</text>
+
+<line
+    x1="58"
+    y1="112"
+    x2="942"
+    y2="112"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="58"
+    y="142"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    BUILD
+</text>
+
+<text
+    x="135"
+    y="142"
+    fill="#39D9FF"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    RESEARCH
+</text>
+
+<text
+    x="245"
+    y="142"
+    fill="#5AA9FF"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ANALYZE
+</text>
+
+<text
+    x="345"
+    y="142"
+    fill="#F4C95D"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    EXPERIMENT
+</text>
+
+<rect
+    x="58"
+    y="155"
+    width="180"
+    height="88"
+    rx="10"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="76"
+    y="179"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    PUBLIC REPOSITORIES
+</text>
+
+<text
+    x="76"
+    y="213"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="23px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    1
+</text>
+
+<rect
+    x="258"
+    y="155"
+    width="180"
+    height="88"
+    rx="10"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="276"
+    y="179"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ACTIVITY INDEX
+</text>
+
+<text
+    x="276"
+    y="213"
+    fill="#39D9FF"
+    font-family="monospace"
+    font-size="23px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    2/100
+</text>
+
+<rect
+    x="458"
+    y="155"
+    width="180"
+    height="88"
+    rx="10"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="476"
+    y="179"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    DATA SOURCE
+</text>
+
+<text
+    x="476"
+    y="213"
+    fill="#5AA9FF"
+    font-family="monospace"
+    font-size="23px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    GITHUB
+</text>
+
+<rect
+    x="658"
+    y="155"
+    width="180"
+    height="88"
+    rx="10"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="676"
+    y="179"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    SYSTEM
+</text>
+
+<text
+    x="676"
+    y="213"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="23px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    ONLINE
+</text>
+</svg>

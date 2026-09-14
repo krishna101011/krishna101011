@@ -1,0 +1,224 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="1000"
+height="330"
+viewBox="0 0 1000 330">
+
+<title>Experiment Log</title>
+
+<rect
+    width="100%"
+    height="100%"
+    rx="14"
+    fill="#07090C"/>
+
+<rect
+    x="1"
+    y="1"
+    width="998"
+    height="328"
+    rx="14"
+    fill="none"
+    stroke="#252C34"
+    stroke-width="2"/>
+
+<text
+    x="32"
+    y="36"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="2px">
+    07 // ARCHIVE
+</text>
+
+<text
+    x="32"
+    y="64"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    EXPERIMENT LOG
+</text>
+
+<circle
+    cx="952"
+    cy="48"
+    r="6"
+    fill="#F4C95D"/>
+
+<text
+    x="938"
+    y="53"
+    fill="#F4C95D"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    LIVE
+</text>
+
+<line
+    x1="32"
+    y1="82"
+    x2="968"
+    y2="82"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<rect
+    x="32"
+    y="96"
+    width="874"
+    height="48"
+    rx="7"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="50"
+    y="125"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    01
+</text>
+
+<text
+    x="95"
+    y="125"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GITHUB CONTROL ROOM
+</text>
+
+<text
+    x="865"
+    y="125"
+    fill="#39E58C"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    ACTIVE
+</text>
+
+<rect
+    x="32"
+    y="158"
+    width="874"
+    height="48"
+    rx="7"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="50"
+    y="187"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    02
+</text>
+
+<text
+    x="95"
+    y="187"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GROWTH GRAPH
+</text>
+
+<text
+    x="865"
+    y="187"
+    fill="#39D9FF"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    ACTIVE
+</text>
+
+<rect
+    x="32"
+    y="220"
+    width="874"
+    height="48"
+    rx="7"
+    fill="#11161D"
+    stroke="#252C34"
+    stroke-width="1"/>
+
+<text
+    x="50"
+    y="249"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    03
+</text>
+
+<text
+    x="95"
+    y="249"
+    fill="#E6EDF3"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    HISTORICAL DATA ENGINE
+</text>
+
+<text
+    x="865"
+    y="249"
+    fill="#5AA9FF"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    1 SNAPSHOTS
+</text>
+
+<text
+    x="32"
+    y="312"
+    fill="#7D8790"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ARCHIVE PRINCIPLE // PRESERVE · MEASURE · ITERATE
+</text>
+</svg>

@@ -33,7 +33,7 @@ jobs:
         run: |
           python scripts/collect_github_data.py
 
-       - name: Generate Control Room
+      - name: Generate Control Room
         run: |
           python scripts/generate_panels.py
 

@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
 
   schedule:
-    # Every day at 18:17 UTC = 23:47 IST
     - cron: "17 18 * * *"
+
+concurrency:
+  group: control-room-update
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -13,6 +16,7 @@ permissions:
 jobs:
   update-profile:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -29,14 +33,13 @@ jobs:
         run: |
           python scripts/collect_github_data.py
 
-      - name: Generate SVG assets
+      - name: Generate charts
         run: |
           python scripts/generate_charts.py
-          python scripts/generate_panels.py
 
-      - name: Update README metrics
+      - name: Generate Control Room panels
         run: |
-          python scripts/update_readme.py
+          python scripts/generate_panels.py
 
       - name: Show generated changes
         run: |
@@ -45,7 +48,7 @@ jobs:
       - name: Commit generated changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+krishna101011@users.noreply.github.com"
 
           git add README.md data/ assets/
 

@@ -6,35 +6,32 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-
 DATA_FILE = ROOT / "data" / "github-history.json"
 ASSETS_DIR = ROOT / "assets"
 
-
 # ============================================================
-# CONTROL ROOM DESIGN SYSTEM
+# DESIGN SYSTEM
 # ============================================================
 
-BG = "#07090C"
-PANEL = "#0D1117"
-PANEL_2 = "#11161D"
-BORDER = "#252C34"
+BG = "#05070A"
+PANEL = "#0A0E13"
+PANEL_ALT = "#0D1218"
+BORDER = "#202832"
 
-TEXT = "#E6EDF3"
-MUTED = "#7D8790"
+TEXT = "#E8EDF2"
+MUTED = "#77828D"
 
-GREEN = "#39E58C"
-CYAN = "#39D9FF"
-BLUE = "#5AA9FF"
-AMBER = "#F4C95D"
-RED = "#FF5C5C"
-
-FONT = "monospace"
+GREEN = "#57E6B1"
+BLUE = "#6AA8FF"
 
 
 # ============================================================
-# DATA
+# HELPERS
 # ============================================================
+
+def esc(value: object) -> str:
+    return html.escape(str(value))
+
 
 def load_history() -> dict:
     if not DATA_FILE.exists():
@@ -53,70 +50,27 @@ def latest_snapshot(history: dict) -> dict:
     return snapshots[-1]
 
 
-def esc(value: object) -> str:
-    return html.escape(str(value))
-
-
-# ============================================================
-# SVG HELPERS
-# ============================================================
-
-def svg_start(
-    width: int,
-    height: int,
-    title: str,
-) -> str:
-    return f"""<svg
-xmlns="http://www.w3.org/2000/svg"
-width="{width}"
-height="{height}"
-viewBox="0 0 {width} {height}">
-
-<title>{esc(title)}</title>
-
-<rect
-    width="100%"
-    height="100%"
-    rx="14"
-    fill="{BG}"/>
-
-<rect
-    x="1"
-    y="1"
-    width="{width - 2}"
-    height="{height - 2}"
-    rx="14"
-    fill="none"
-    stroke="{BORDER}"
-    stroke-width="2"/>
-"""
-
-
-def svg_end() -> str:
-    return "</svg>\n"
-
-
 def text(
     x: float,
     y: float,
-    content: str,
-    size: int = 14,
+    value: str,
+    size: int = 12,
     color: str = TEXT,
     weight: str = "400",
     anchor: str = "start",
-    letter_spacing: str = "0",
+    spacing: float = 0,
 ) -> str:
     return f"""
 <text
     x="{x}"
     y="{y}"
     fill="{color}"
-    font-family="{FONT}"
+    font-family="monospace"
     font-size="{size}px"
     font-weight="{weight}"
     text-anchor="{anchor}"
-    letter-spacing="{letter_spacing}px">
-    {esc(content)}
+    letter-spacing="{spacing}px">
+    {esc(value)}
 </text>
 """
 
@@ -139,304 +93,117 @@ def line(
     stroke-width="{width}"/>
 """
 
-
-def panel_header(
-    width: int,
-    section: str,
-    title: str,
-    status: str | None = None,
-    status_color: str = GREEN,
-) -> str:
-    output = ""
-
-    output += text(
-        32,
-        36,
-        section,
-        11,
-        GREEN,
-        "700",
-        letter_spacing="2",
-    )
-
-    output += text(
-        32,
-        64,
-        title,
-        22,
-        TEXT,
-        "700",
-    )
-
-    if status is not None:
-        output += f"""
-<circle
-    cx="{width - 48}"
-    cy="48"
-    r="6"
-    fill="{status_color}"/>
-"""
-
-        output += text(
-            width - 62,
-            53,
-            status,
-            11,
-            status_color,
-            "700",
-            "end",
-            "1",
-        )
-
-    output += line(
-        32,
-        82,
-        width - 32,
-        82,
-    )
-
-    return output
+def svg_end() -> str:
+    return "</svg>\n"
 
 
-def metric_card(
+def box(
     x: float,
     y: float,
     width: float,
-    label: str,
-    value: str,
-    accent: str = GREEN,
+    height: float,
+    fill: str = PANEL_ALT,
+    stroke: str = BORDER,
+    radius: int = 8,
 ) -> str:
-    output = f"""
+    return f"""
 <rect
     x="{x}"
     y="{y}"
     width="{width}"
-    height="88"
-    rx="10"
-    fill="{PANEL_2}"
-    stroke="{BORDER}"
+    height="{height}"
+    rx="{radius}"
+    fill="{fill}"
+    stroke="{stroke}"
     stroke-width="1"/>
 """
 
-    output += text(
-        x + 18,
-        y + 24,
-        label,
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
 
-    output += text(
-        x + 18,
-        y + 58,
-        value,
-        23,
-        accent,
-        "700",
-    )
+# ============================================================
+# ACTIVITY CHART
+# ============================================================
 
-    return output
+def activity_points(
+    snapshots: list[dict],
+    left: float,
+    top: float,
+    width: float,
+    height: float,
+) -> tuple[list[tuple[float, float]], int]:
+
+    values = [
+        int(
+            snapshot.get(
+                "activity",
+                {},
+            ).get(
+                "activity_index",
+                0,
+            )
+        )
+        for snapshot in snapshots
+    ]
+
+    if not values:
+        values = [0]
+
+    maximum = max(values)
+
+    if maximum <= 5:
+        chart_max = 5
+    elif maximum <= 10:
+        chart_max = 10
+    elif maximum <= 25:
+        chart_max = 25
+    elif maximum <= 50:
+        chart_max = 50
+    else:
+        chart_max = 100
+
+    points = []
+
+    for index, value in enumerate(values):
+        if len(values) == 1:
+            x = left + width / 2
+        else:
+            x = left + (
+                index / (len(values) - 1)
+            ) * width
+
+        y = (
+            top
+            + height
+            - (
+                value / chart_max
+            ) * height
+        )
+
+        points.append((x, y))
+
+    return points, chart_max
 
 
 # ============================================================
-# CONTROL HEADER
+# MAIN SVG
 # ============================================================
 
-def generate_control_header(
+def generate_control_room(
     history: dict,
 ) -> None:
-    width = 1000
-    height = 210
 
     latest = latest_snapshot(history)
+
+    snapshots = history.get(
+        "snapshots",
+        [],
+    )
 
     repositories = latest.get(
         "repository_count",
         0,
     )
 
-    activity = latest.get(
-        "activity",
-        {},
-    )
-
-    activity_index = activity.get(
-        "activity_index",
-        0,
-    )
-
-    output = svg_start(
-        width,
-        height,
-        "KRISHNA Control Room",
-    )
-
-    # Accent line
-    output += f"""
-<rect
-    x="32"
-    y="30"
-    width="5"
-    height="150"
-    rx="2"
-    fill="{GREEN}"/>
-"""
-
-    output += text(
-        58,
-        60,
-        "KRISHNA // CONTROL ROOM",
-        27,
-        TEXT,
-        "700",
-        letter_spacing="2",
-    )
-
-    output += text(
-        58,
-        88,
-        "GITHUB OPERATIONS // PERSONAL RESEARCH SYSTEM",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="2",
-    )
-
-    # Live indicator
-    output += f"""
-<circle
-    cx="920"
-    cy="54"
-    r="7"
-    fill="{GREEN}"/>
-"""
-
-    output += text(
-        942,
-        58,
-        "LIVE",
-        11,
-        GREEN,
-        "700",
-        letter_spacing="1",
-    )
-
-    # Signal line
-    output += line(
-        58,
-        112,
-        942,
-        112,
-        BORDER,
-        1,
-    )
-
-    output += text(
-        58,
-        142,
-        "BUILD",
-        10,
-        GREEN,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        135,
-        142,
-        "RESEARCH",
-        10,
-        CYAN,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        245,
-        142,
-        "ANALYZE",
-        10,
-        BLUE,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        345,
-        142,
-        "EXPERIMENT",
-        10,
-        AMBER,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += metric_card(
-        58,
-        155,
-        180,
-        "PUBLIC REPOSITORIES",
-        str(repositories),
-        GREEN,
-    )
-
-    output += metric_card(
-        258,
-        155,
-        180,
-        "ACTIVITY INDEX",
-        f"{activity_index}/100",
-        CYAN,
-    )
-
-    output += metric_card(
-        458,
-        155,
-        180,
-        "DATA SOURCE",
-        "GITHUB",
-        BLUE,
-    )
-
-    output += metric_card(
-        658,
-        155,
-        180,
-        "SYSTEM",
-        "ONLINE",
-        GREEN,
-    )
-
-    output += svg_end()
-
-    (
-        ASSETS_DIR / "control-header.svg"
-    ).write_text(
-        output,
-        encoding="utf-8",
-    )
-
-
-# ============================================================
-# SYSTEM STATUS
-# ============================================================
-
-def generate_system_status(
-    history: dict,
-) -> None:
-    width = 1000
-    height = 315
-
-    latest = latest_snapshot(history)
-
-    repositories = latest.get(
-        "repository_count",
-        0,
-    )
-
-    active = latest.get(
+    active_repositories = latest.get(
         "active_repository_count",
         0,
     )
@@ -451,142 +218,14 @@ def generate_system_status(
         0,
     )
 
-    output = svg_start(
-        width,
-        height,
-        "System Status",
-    )
-
-    output += panel_header(
-        width,
-        "01 // SYSTEM",
-        "SYSTEM STATUS",
-        "ONLINE",
-    )
-
-    output += metric_card(
-        32,
-        108,
-        205,
-        "REPOSITORIES",
-        str(repositories),
-        GREEN,
-    )
-
-    output += metric_card(
-        255,
-        108,
-        205,
-        "ACTIVE",
-        str(active),
-        GREEN,
-    )
-
-    output += metric_card(
-        478,
-        108,
-        205,
-        "STARS",
-        str(stars),
-        AMBER,
-    )
-
-    output += metric_card(
-        701,
-        108,
-        205,
-        "FORKS",
-        str(forks),
-        CYAN,
-    )
-
-    output += text(
-        32,
-        238,
-        "PRIMARY",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        115,
-        238,
-        "PYTHON",
-        12,
-        GREEN,
-        "700",
-    )
-
-    output += text(
-        235,
-        238,
-        "SECONDARY",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        328,
-        238,
-        "JAVASCRIPT / TYPESCRIPT / SQL",
-        12,
-        CYAN,
-        "700",
-    )
-
-    output += text(
-        32,
-        273,
-        "MODE",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        85,
-        273,
-        "RESEARCH · BUILD · EXPERIMENT",
-        12,
-        TEXT,
-        "700",
-    )
-
-    output += svg_end()
-
-    (
-        ASSETS_DIR / "system-status.svg"
-    ).write_text(
-        output,
-        encoding="utf-8",
-    )
-
-
-# ============================================================
-# TELEMETRY
-# ============================================================
-
-def generate_telemetry(
-    history: dict,
-) -> None:
-    width = 1000
-    height = 355
-
-    snapshots = history.get(
-        "snapshots",
-        [],
-    )
-
-    latest = latest_snapshot(history)
-
     activity = latest.get(
         "activity",
         {},
+    )
+
+    activity_index = activity.get(
+        "activity_index",
+        0,
     )
 
     commits = activity.get(
@@ -604,438 +243,514 @@ def generate_telemetry(
         0,
     )
 
-    events = activity.get(
-        "recent_events",
-        0,
-    )
+    # --------------------------------------------------------
+    # Canvas
+    # --------------------------------------------------------
 
-    output = svg_start(
-        width,
-        height,
-        "GitHub Telemetry",
-    )
+    width = 1100
+    height = 650
 
-    output += panel_header(
-        width,
-        "03 // TELEMETRY",
-        "LIVE TELEMETRY",
-        "REAL DATA",
-        CYAN,
-    )
+    output = f"""<svg
+xmlns="http://www.w3.org/2000/svg"
+width="{width}"
+height="{height}"
+viewBox="0 0 {width} {height}">
 
-    output += metric_card(
-        32,
-        108,
-        205,
-        "COMMITS",
-        str(commits),
-        GREEN,
-    )
+<title>ZENZIZENZIC // CONTROL ROOM</title>
 
-    output += metric_card(
-        255,
-        108,
-        205,
-        "PULL REQUESTS",
-        str(pull_requests),
-        BLUE,
-    )
+<rect
+    width="100%"
+    height="100%"
+    rx="18"
+    fill="{BG}"/>
 
-    output += metric_card(
-        478,
-        108,
-        205,
-        "ISSUES",
-        str(issues),
-        AMBER,
-    )
+<rect
+    x="1"
+    y="1"
+    width="{width - 2}"
+    height="{height - 2}"
+    rx="18"
+    fill="none"
+    stroke="{BORDER}"
+    stroke-width="2"/>
+"""
 
-    output += metric_card(
-        701,
-        108,
-        205,
-        "EVENTS",
-        str(events),
-        CYAN,
-    )
+    # ========================================================
+    # HEADER
+    # ========================================================
+
+    output += f"""
+<rect
+    x="24"
+    y="24"
+    width="{width - 48}"
+    height="92"
+    rx="12"
+    fill="{PANEL}"
+    stroke="{BORDER}"
+    stroke-width="1"/>
+"""
 
     output += text(
-        32,
-        245,
-        "HISTORY LENGTH",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += text(
-        170,
-        245,
-        f"{len(snapshots)} SNAPSHOT(S)",
-        12,
+        48,
+        58,
+        "ZENZIZENZIC // CONTROL ROOM",
+        24,
         TEXT,
         "700",
+        spacing=1.5,
     )
 
     output += text(
-        32,
-        280,
-        "COLLECTION ENGINE",
+        48,
+        84,
+        "BUILD  ·  RESEARCH  ·  ANALYZE  ·  EXPERIMENT",
         10,
         MUTED,
         "700",
-        letter_spacing="1",
+        spacing=1,
     )
 
+    output += f"""
+<circle
+    cx="{width - 72}"
+    cy="56"
+    r="6"
+    fill="{GREEN}"/>
+"""
+
     output += text(
-        190,
-        280,
-        "PYTHON / GITHUB API",
-        12,
+        width - 56,
+        60,
+        "LIVE",
+        10,
         GREEN,
         "700",
+        spacing=1,
     )
 
     output += text(
-        32,
-        315,
-        "CLASSIFICATION",
-        10,
+        width - 48,
+        86,
+        "GITHUB",
+        9,
+        BLUE,
+        "700",
+        "end",
+        1,
+    )
+
+    # ========================================================
+    # METRIC STRIP
+    # ========================================================
+
+    metric_y = 140
+    metric_w = 244
+    metric_h = 92
+    gap = 8
+    start_x = 24
+
+    metrics = [
+        ("REPOSITORIES", repositories, GREEN),
+        ("ACTIVE", active_repositories, GREEN),
+        ("STARS", stars, BLUE),
+        ("ACTIVITY INDEX", f"{activity_index}/100", GREEN),
+    ]
+
+    for index, (
+        label,
+        value,
+        color,
+    ) in enumerate(metrics):
+
+        x = start_x + (
+            index * (
+                metric_w + gap
+            )
+        )
+
+        output += box(
+            x,
+            metric_y,
+            metric_w,
+            metric_h,
+        )
+
+        output += text(
+            x + 18,
+            metric_y + 28,
+            label,
+            9,
+            MUTED,
+            "700",
+            spacing=1,
+        )
+
+        output += text(
+            x + 18,
+            metric_y + 64,
+            str(value),
+            22,
+            color,
+            "700",
+        )
+
+    # ========================================================
+    # ACTIVITY MARKET
+    # ========================================================
+
+    chart_x = 24
+    chart_y = 254
+    chart_w = 720
+    chart_h = 210
+
+    output += box(
+        chart_x,
+        chart_y,
+        chart_w,
+        chart_h,
+    )
+
+    output += text(
+        chart_x + 20,
+        chart_y + 28,
+        "GITHUB ACTIVITY",
+        11,
+        TEXT,
+        "700",
+        spacing=1,
+    )
+
+    output += text(
+        chart_x + chart_w - 20,
+        chart_y + 28,
+        "DERIVED SIGNAL",
+        8,
+        GREEN,
+        "700",
+        "end",
+        1,
+    )
+
+    plot_left = chart_x + 20
+    plot_top = chart_y + 52
+    plot_w = chart_w - 40
+    plot_h = 118
+
+    points, chart_max = activity_points(
+        snapshots,
+        plot_left,
+        plot_top,
+        plot_w,
+        plot_h,
+    )
+
+    for level in range(5):
+
+        fraction = (
+            level / 4
+        )
+
+        y = (
+            plot_top
+            + (
+                fraction
+                * plot_h
+            )
+        )
+
+        value = int(
+            chart_max
+            - (
+                fraction
+                * chart_max
+            )
+        )
+
+        output += line(
+            plot_left,
+            y,
+            plot_left + plot_w,
+            y,
+            BORDER,
+        )
+
+        output += text(
+            plot_left - 8,
+            y + 4,
+            str(value),
+            8,
+            MUTED,
+            "700",
+            "end",
+        )
+
+    polyline = " ".join(
+        f"{x:.1f},{y:.1f}"
+        for x, y in points
+    )
+
+    output += f"""
+<polyline
+    points="{polyline}"
+    fill="none"
+    stroke="{GREEN}"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+"""
+
+    for index, (
+        x,
+        y,
+    ) in enumerate(points):
+
+        value = int(
+            snapshots[index]
+            .get(
+                "activity",
+                {},
+            )
+            .get(
+                "activity_index",
+                0,
+            )
+        )
+
+        date = snapshots[index].get(
+            "date",
+            "",
+        )
+
+        output += f"""
+<circle
+    cx="{x:.1f}"
+    cy="{y:.1f}"
+    r="3.5"
+    fill="{GREEN}">
+    <title>
+        {esc(date)}
+        · Activity {value}/100
+    </title>
+</circle>
+"""
+
+    output += text(
+        chart_x + 20,
+        chart_y + 191,
+        f"{len(snapshots)} SNAPSHOTS  ·  VISUAL RANGE 0–{chart_max}",
+        8,
         MUTED,
         "700",
-        letter_spacing="1",
+        spacing=1,
+    )
+
+    # ========================================================
+    # TELEMETRY
+    # ========================================================
+
+    telemetry_x = 752
+    telemetry_y = 254
+    telemetry_w = 324
+    telemetry_h = 210
+
+    output += box(
+        telemetry_x,
+        telemetry_y,
+        telemetry_w,
+        telemetry_h,
     )
 
     output += text(
-        150,
-        315,
-        "REAL DATA · DERIVED SIGNAL · PERSONAL CONTEXT",
+        telemetry_x + 20,
+        telemetry_y + 28,
+        "TELEMETRY",
         11,
-        CYAN,
+        TEXT,
         "700",
+        spacing=1,
     )
 
-    output += svg_end()
+    telemetry_items = [
+        ("COMMITS", commits, GREEN),
+        ("PULL REQUESTS", pull_requests, BLUE),
+        ("ISSUES", issues, BLUE),
+        ("FORKS", forks, GREEN),
+    ]
 
-    (
-        ASSETS_DIR / "telemetry.svg"
-    ).write_text(
-        output,
-        encoding="utf-8",
+    for index, (
+        label,
+        value,
+        color,
+    ) in enumerate(telemetry_items):
+
+        row_y = (
+            telemetry_y
+            + 58
+            + (
+                index * 34
+            )
+        )
+
+        output += text(
+            telemetry_x + 20,
+            row_y,
+            label,
+            8,
+            MUTED,
+            "700",
+            spacing=1,
+        )
+
+        output += text(
+            telemetry_x
+            + telemetry_w
+            - 20,
+            row_y,
+            str(value),
+            13,
+            color,
+            "700",
+            "end",
+        )
+
+    output += line(
+        telemetry_x + 20,
+        telemetry_y + 186,
+        telemetry_x + telemetry_w - 20,
+        telemetry_y + 186,
     )
 
+    output += text(
+        telemetry_x + 20,
+        telemetry_y + 203,
+        "REAL DATA",
+        8,
+        GREEN,
+        "700",
+        spacing=1,
+    )
 
-# ============================================================
-# CURRENT SIGNAL
-# ============================================================
+    # ========================================================
+    # SIGNAL STRIP
+    # ========================================================
 
-def generate_signals(
-    history: dict,
-) -> None:
-    width = 1000
-    height = 245
+    signal_y = 486
+
+    output += box(
+        24,
+        signal_y,
+        width - 48,
+        70,
+    )
+
+    output += text(
+        44,
+        signal_y + 26,
+        "SIGNAL",
+        9,
+        MUTED,
+        "700",
+        spacing=1,
+    )
 
     signals = [
         ("FINANCE", GREEN),
-        ("TECHNOLOGY", CYAN),
-        ("AI", BLUE),
-        ("CYBERSECURITY", RED),
-        ("ANALYTICS", AMBER),
-        ("RESEARCH", TEXT),
+        ("TECHNOLOGY", BLUE),
+        ("AI", GREEN),
+        ("ANALYTICS", BLUE),
+        ("RESEARCH", GREEN),
     ]
 
-    output = svg_start(
-        width,
-        height,
-        "Current Signal",
-    )
+    x = 132
 
-    output += panel_header(
-        width,
-        "04 // SIGNAL",
-        "CURRENT SIGNAL",
-        "ACTIVE",
-        GREEN,
-    )
+    for label, color in signals:
 
-    x = 32
-    y = 112
-
-    for index, (label, color) in enumerate(
-        signals
-    ):
-        approximate_width = (
+        badge_w = (
             len(label) * 8
-        ) + 38
+        ) + 32
 
         output += f"""
 <rect
     x="{x}"
-    y="{y}"
-    width="{approximate_width}"
-    height="42"
-    rx="8"
-    fill="{PANEL_2}"
+    y="{signal_y + 14}"
+    width="{badge_w}"
+    height="30"
+    rx="7"
+    fill="{PANEL_ALT}"
     stroke="{color}"
     stroke-width="1"/>
 """
 
         output += text(
-            x + 16,
-            y + 27,
+            x + (
+                badge_w / 2
+            ),
+            signal_y + 34,
             label,
-            11,
+            8,
             color,
             "700",
-            letter_spacing="1",
+            "middle",
+            .5,
         )
 
-        x += approximate_width + 12
+        x += (
+            badge_w
+            + 10
+        )
 
-        if x > width - 180:
-            x = 32
-            y += 58
+    # ========================================================
+    # FOOTER
+    # ========================================================
 
-    output += text(
-        32,
-        214,
-        "SIGNAL PROFILE // FINANCE × TECHNOLOGY × AI × SECURITY × RESEARCH",
-        10,
-        MUTED,
-        "700",
-        letter_spacing="1",
-    )
-
-    output += svg_end()
-
-    (
-        ASSETS_DIR / "signals.svg"
-    ).write_text(
-        output,
-        encoding="utf-8",
-    )
-
-
-# ============================================================
-# ACTIVE LAB
-# ============================================================
-
-def generate_active_lab(
-    history: dict,
-) -> None:
-    width = 1000
-    height = 345
-
-    output = svg_start(
-        width,
-        height,
-        "Active Lab",
-    )
-
-    output += panel_header(
-        width,
-        "06 // LAB",
-        "ACTIVE LAB",
-        "RUNNING",
-        GREEN,
-    )
+    footer_y = 584
 
     output += text(
-        32,
-        119,
+        48,
+        footer_y + 24,
         "GROWTH GRAPH",
-        16,
+        9,
         TEXT,
         "700",
-        letter_spacing="1",
+        spacing=1,
     )
 
     output += text(
-        32,
-        148,
-        "PERSONAL PERFORMANCE ANALYTICS",
-        10,
-        CYAN,
+        190,
+        footer_y + 24,
+        "GITHUB ENGINE",
+        9,
+        BLUE,
         "700",
-        letter_spacing="1",
+        spacing=1,
     )
 
-    features = [
-        "GOALS / ACTUALS",
-        "0–100 GROWTH SCORE",
-        "MULTI-TIMELINE ANALYSIS",
-        "HISTORICAL DATA",
-        "TRADING-STYLE CHARTS",
-        "AI REVIEW",
-        "PROVIDER FAILOVER",
-        "LOCAL-FIRST STORAGE",
-    ]
-
-    x = 32
-    y = 190
-
-    for index, item in enumerate(
-        features
-    ):
-        column = index % 2
-        row = index // 2
-
-        x = 32 + (column * 455)
-        current_y = (
-            y + (row * 30)
-        )
-
-        output += f"""
-<circle
-    cx="{x}"
-    cy="{current_y - 4}"
-    r="3"
-    fill="{GREEN}"/>
-"""
-
-        output += text(
-            x + 14,
-            current_y,
-            item,
-            11,
-            TEXT,
-            "700",
-        )
-
     output += text(
-        32,
-        322,
-        "EXPERIMENT STATUS // ACTIVE DEVELOPMENT",
-        10,
+        330,
+        footer_y + 24,
+        "HISTORICAL DATA",
+        9,
         GREEN,
         "700",
-        letter_spacing="1",
+        spacing=1,
     )
-
-    output += svg_end()
-
-    (
-        ASSETS_DIR / "active-lab.svg"
-    ).write_text(
-        output,
-        encoding="utf-8",
-    )
-
-
-# ============================================================
-# EXPERIMENT LOG
-# ============================================================
-
-def generate_experiment_log(
-    history: dict,
-) -> None:
-    width = 1000
-    height = 330
-
-    snapshots = history.get(
-        "snapshots",
-        [],
-    )
-
-    output = svg_start(
-        width,
-        height,
-        "Experiment Log",
-    )
-
-    output += panel_header(
-        width,
-        "07 // ARCHIVE",
-        "EXPERIMENT LOG",
-        "LIVE",
-        AMBER,
-    )
-
-    experiments = [
-        (
-            "01",
-            "GITHUB CONTROL ROOM",
-            "ACTIVE",
-            GREEN,
-        ),
-        (
-            "02",
-            "GROWTH GRAPH",
-            "ACTIVE",
-            CYAN,
-        ),
-        (
-            "03",
-            "HISTORICAL DATA ENGINE",
-            f"{len(snapshots)} SNAPSHOTS",
-            BLUE,
-        ),
-    ]
-
-    y = 120
-
-    for code, name, status, color in experiments:
-
-        output += f"""
-<rect
-    x="32"
-    y="{y - 24}"
-    width="874"
-    height="48"
-    rx="7"
-    fill="{PANEL_2}"
-    stroke="{BORDER}"
-    stroke-width="1"/>
-"""
-
-        output += text(
-            50,
-            y + 5,
-            code,
-            10,
-            MUTED,
-            "700",
-            letter_spacing="1",
-        )
-
-        output += text(
-            95,
-            y + 5,
-            name,
-            11,
-            TEXT,
-            "700",
-            letter_spacing="1",
-        )
-
-        output += text(
-            865,
-            y + 5,
-            status,
-            10,
-            color,
-            "700",
-            "end",
-            "1",
-        )
-
-        y += 62
 
     output += text(
-        32,
-        312,
-        "ARCHIVE PRINCIPLE // PRESERVE · MEASURE · ITERATE",
-        10,
+        width - 48,
+        footer_y + 24,
+        "ZENZIZENZIC / 2026",
+        8,
         MUTED,
         "700",
-        letter_spacing="1",
+        "end",
+        1,
     )
 
     output += svg_end()
 
     (
-        ASSETS_DIR / "experiment-log.svg"
+        ASSETS_DIR / "control-room.svg"
     ).write_text(
         output,
         encoding="utf-8",
@@ -1047,6 +762,7 @@ def generate_experiment_log(
 # ============================================================
 
 def main() -> None:
+
     ASSETS_DIR.mkdir(
         parents=True,
         exist_ok=True,
@@ -1054,29 +770,38 @@ def main() -> None:
 
     history = load_history()
 
-    generate_control_header(history)
-    generate_system_status(history)
-    generate_telemetry(history)
-    generate_signals(history)
-    generate_active_lab(history)
-    generate_experiment_log(history)
+    generate_control_room(
+        history
+    )
 
     print()
-    print("======================================")
-    print(" KRISHNA // CONTROL ROOM V2")
-    print(" VISUAL ENGINE")
-    print("======================================")
+    print(
+        "======================================"
+    )
+    print(
+        " ZENZIZENZIC // CONTROL ROOM"
+    )
+    print(
+        " COMPACT VISUAL ENGINE"
+    )
+    print(
+        "======================================"
+    )
     print()
-    print("Generated:")
-    print("  control-header.svg")
-    print("  system-status.svg")
-    print("  telemetry.svg")
-    print("  signals.svg")
-    print("  active-lab.svg")
-    print("  experiment-log.svg")
+    print(
+        "Generated:"
+    )
+    print(
+        "  assets/control-room.svg"
+    )
     print()
-    print("Output:")
-    print(ASSETS_DIR)
+    print(
+        f"Snapshots: "
+        f"{len(history.get('snapshots', []))}"
+    )
+    print(
+        f"Output: {ASSETS_DIR}"
+    )
 
 
 if __name__ == "__main__":

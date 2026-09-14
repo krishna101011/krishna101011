@@ -33,11 +33,7 @@ jobs:
         run: |
           python scripts/collect_github_data.py
 
-      - name: Generate charts
-        run: |
-          python scripts/generate_charts.py
-
-      - name: Generate Control Room panels
+       - name: Generate Control Room
         run: |
           python scripts/generate_panels.py
 

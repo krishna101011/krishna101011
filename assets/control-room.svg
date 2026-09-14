@@ -1,0 +1,729 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="1100"
+height="650"
+viewBox="0 0 1100 650">
+
+<title>ZENZIZENZIC // CONTROL ROOM</title>
+
+<rect
+    width="100%"
+    height="100%"
+    rx="18"
+    fill="#05070A"/>
+
+<rect
+    x="1"
+    y="1"
+    width="1098"
+    height="648"
+    rx="18"
+    fill="none"
+    stroke="#202832"
+    stroke-width="2"/>
+
+<rect
+    x="24"
+    y="24"
+    width="1052"
+    height="92"
+    rx="12"
+    fill="#0A0E13"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="48"
+    y="58"
+    fill="#E8EDF2"
+    font-family="monospace"
+    font-size="24px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1.5px">
+    ZENZIZENZIC // CONTROL ROOM
+</text>
+
+<text
+    x="48"
+    y="84"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    BUILD  ·  RESEARCH  ·  ANALYZE  ·  EXPERIMENT
+</text>
+
+<circle
+    cx="1028"
+    cy="56"
+    r="6"
+    fill="#57E6B1"/>
+
+<text
+    x="1044"
+    y="60"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="10px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    LIVE
+</text>
+
+<text
+    x="1052"
+    y="86"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    GITHUB
+</text>
+
+<rect
+    x="24"
+    y="140"
+    width="244"
+    height="92"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="42"
+    y="168"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    REPOSITORIES
+</text>
+
+<text
+    x="42"
+    y="204"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    1
+</text>
+
+<rect
+    x="276"
+    y="140"
+    width="244"
+    height="92"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="294"
+    y="168"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ACTIVE
+</text>
+
+<text
+    x="294"
+    y="204"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    1
+</text>
+
+<rect
+    x="528"
+    y="140"
+    width="244"
+    height="92"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="546"
+    y="168"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    STARS
+</text>
+
+<text
+    x="546"
+    y="204"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    0
+</text>
+
+<rect
+    x="780"
+    y="140"
+    width="244"
+    height="92"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="798"
+    y="168"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ACTIVITY INDEX
+</text>
+
+<text
+    x="798"
+    y="204"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="22px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="0px">
+    0/100
+</text>
+
+<rect
+    x="24"
+    y="254"
+    width="720"
+    height="210"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="44"
+    y="282"
+    fill="#E8EDF2"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GITHUB ACTIVITY
+</text>
+
+<text
+    x="724"
+    y="282"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    DERIVED SIGNAL
+</text>
+
+<line
+    x1="44"
+    y1="306.0"
+    x2="724"
+    y2="306.0"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="36"
+    y="310.0"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    5
+</text>
+
+<line
+    x1="44"
+    y1="335.5"
+    x2="724"
+    y2="335.5"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="36"
+    y="339.5"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    3
+</text>
+
+<line
+    x1="44"
+    y1="365.0"
+    x2="724"
+    y2="365.0"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="36"
+    y="369.0"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    2
+</text>
+
+<line
+    x1="44"
+    y1="394.5"
+    x2="724"
+    y2="394.5"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="36"
+    y="398.5"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    1
+</text>
+
+<line
+    x1="44"
+    y1="424.0"
+    x2="724"
+    y2="424.0"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="36"
+    y="428.0"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    0
+</text>
+
+<polyline
+    points="44.0,376.8 384.0,424.0 724.0,424.0"
+    fill="none"
+    stroke="#57E6B1"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+<circle
+    cx="44.0"
+    cy="376.8"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-11
+        · Activity 2/100
+    </title>
+</circle>
+
+<circle
+    cx="384.0"
+    cy="424.0"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-12
+        · Activity 0/100
+    </title>
+</circle>
+
+<circle
+    cx="724.0"
+    cy="424.0"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-13
+        · Activity 0/100
+    </title>
+</circle>
+
+<text
+    x="44"
+    y="445"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    3 SNAPSHOTS  ·  VISUAL RANGE 0–5
+</text>
+
+<rect
+    x="752"
+    y="254"
+    width="324"
+    height="210"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="772"
+    y="282"
+    fill="#E8EDF2"
+    font-family="monospace"
+    font-size="11px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    TELEMETRY
+</text>
+
+<text
+    x="772"
+    y="312"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    COMMITS
+</text>
+
+<text
+    x="1056"
+    y="312"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="13px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    0
+</text>
+
+<text
+    x="772"
+    y="346"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    PULL REQUESTS
+</text>
+
+<text
+    x="1056"
+    y="346"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="13px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    0
+</text>
+
+<text
+    x="772"
+    y="380"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    ISSUES
+</text>
+
+<text
+    x="1056"
+    y="380"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="13px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    0
+</text>
+
+<text
+    x="772"
+    y="414"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    FORKS
+</text>
+
+<text
+    x="1056"
+    y="414"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="13px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="0px">
+    0
+</text>
+
+<line
+    x1="772"
+    y1="440"
+    x2="1056"
+    y2="440"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="772"
+    y="457"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    REAL DATA
+</text>
+
+<rect
+    x="24"
+    y="486"
+    width="1052"
+    height="70"
+    rx="8"
+    fill="#0D1218"
+    stroke="#202832"
+    stroke-width="1"/>
+
+<text
+    x="44"
+    y="512"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    SIGNAL
+</text>
+
+<rect
+    x="132"
+    y="500"
+    width="88"
+    height="30"
+    rx="7"
+    fill="#0D1218"
+    stroke="#57E6B1"
+    stroke-width="1"/>
+
+<text
+    x="176.0"
+    y="520"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5px">
+    FINANCE
+</text>
+
+<rect
+    x="230"
+    y="500"
+    width="112"
+    height="30"
+    rx="7"
+    fill="#0D1218"
+    stroke="#6AA8FF"
+    stroke-width="1"/>
+
+<text
+    x="286.0"
+    y="520"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5px">
+    TECHNOLOGY
+</text>
+
+<rect
+    x="352"
+    y="500"
+    width="48"
+    height="30"
+    rx="7"
+    fill="#0D1218"
+    stroke="#57E6B1"
+    stroke-width="1"/>
+
+<text
+    x="376.0"
+    y="520"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5px">
+    AI
+</text>
+
+<rect
+    x="410"
+    y="500"
+    width="104"
+    height="30"
+    rx="7"
+    fill="#0D1218"
+    stroke="#6AA8FF"
+    stroke-width="1"/>
+
+<text
+    x="462.0"
+    y="520"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5px">
+    ANALYTICS
+</text>
+
+<rect
+    x="524"
+    y="500"
+    width="96"
+    height="30"
+    rx="7"
+    fill="#0D1218"
+    stroke="#57E6B1"
+    stroke-width="1"/>
+
+<text
+    x="572.0"
+    y="520"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5px">
+    RESEARCH
+</text>
+
+<text
+    x="48"
+    y="608"
+    fill="#E8EDF2"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GROWTH GRAPH
+</text>
+
+<text
+    x="190"
+    y="608"
+    fill="#6AA8FF"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    GITHUB ENGINE
+</text>
+
+<text
+    x="330"
+    y="608"
+    fill="#57E6B1"
+    font-family="monospace"
+    font-size="9px"
+    font-weight="700"
+    text-anchor="start"
+    letter-spacing="1px">
+    HISTORICAL DATA
+</text>
+
+<text
+    x="1052"
+    y="608"
+    fill="#77828D"
+    font-family="monospace"
+    font-size="8px"
+    font-weight="700"
+    text-anchor="end"
+    letter-spacing="1px">
+    ZENZIZENZIC / 2026
+</text>
+</svg>

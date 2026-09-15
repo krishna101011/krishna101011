@@ -357,7 +357,7 @@ viewBox="0 0 1100 650">
 </text>
 
 <polyline
-    points="44.0,376.8 384.0,424.0 724.0,424.0"
+    points="44.0,376.8 270.7,424.0 497.3,424.0 724.0,424.0"
     fill="none"
     stroke="#57E6B1"
     stroke-width="3"
@@ -376,7 +376,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="384.0"
+    cx="270.7"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -387,12 +387,23 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="724.0"
+    cx="497.3"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
     <title>
         2026-09-13
+        · Activity 0/100
+    </title>
+</circle>
+
+<circle
+    cx="724.0"
+    cy="424.0"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-15
         · Activity 0/100
     </title>
 </circle>
@@ -406,7 +417,7 @@ viewBox="0 0 1100 650">
     font-weight="700"
     text-anchor="start"
     letter-spacing="1px">
-    3 SNAPSHOTS  ·  VISUAL RANGE 0–5
+    4 SNAPSHOTS  ·  VISUAL RANGE 0–5
 </text>
 
 <rect

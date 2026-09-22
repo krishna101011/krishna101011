@@ -357,7 +357,7 @@ viewBox="0 0 1100 650">
 </text>
 
 <polyline
-    points="44.0,376.8 119.6,424.0 195.1,424.0 270.7,424.0 346.2,424.0 421.8,424.0 497.3,424.0 572.9,424.0 648.4,424.0 724.0,424.0"
+    points="44.0,376.8 112.0,424.0 180.0,424.0 248.0,424.0 316.0,424.0 384.0,424.0 452.0,424.0 520.0,424.0 588.0,424.0 656.0,424.0 724.0,424.0"
     fill="none"
     stroke="#57E6B1"
     stroke-width="3"
@@ -376,7 +376,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="119.6"
+    cx="112.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -387,7 +387,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="195.1"
+    cx="180.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -398,7 +398,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="270.7"
+    cx="248.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -409,7 +409,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="346.2"
+    cx="316.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -420,7 +420,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="421.8"
+    cx="384.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -431,7 +431,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="497.3"
+    cx="452.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -442,7 +442,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="572.9"
+    cx="520.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -453,7 +453,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="648.4"
+    cx="588.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -464,12 +464,23 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="724.0"
+    cx="656.0"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
     <title>
         2026-09-21
+        · Activity 0/100
+    </title>
+</circle>
+
+<circle
+    cx="724.0"
+    cy="424.0"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-22
         · Activity 0/100
     </title>
 </circle>
@@ -483,7 +494,7 @@ viewBox="0 0 1100 650">
     font-weight="700"
     text-anchor="start"
     letter-spacing="1px">
-    10 SNAPSHOTS  ·  VISUAL RANGE 0–5
+    11 SNAPSHOTS  ·  VISUAL RANGE 0–5
 </text>
 
 <rect

@@ -357,7 +357,7 @@ viewBox="0 0 1100 650">
 </text>
 
 <polyline
-    points="44.0,376.8 100.7,424.0 157.3,424.0 214.0,424.0 270.7,424.0 327.3,424.0 384.0,424.0 440.7,424.0 497.3,424.0 554.0,424.0 610.7,424.0 667.3,424.0 724.0,424.0"
+    points="44.0,376.8 96.3,424.0 148.6,424.0 200.9,424.0 253.2,424.0 305.5,424.0 357.8,424.0 410.2,424.0 462.5,424.0 514.8,424.0 567.1,424.0 619.4,424.0 671.7,424.0 724.0,424.0"
     fill="none"
     stroke="#57E6B1"
     stroke-width="3"
@@ -376,7 +376,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="100.7"
+    cx="96.3"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -387,7 +387,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="157.3"
+    cx="148.6"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -398,7 +398,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="214.0"
+    cx="200.9"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -409,7 +409,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="270.7"
+    cx="253.2"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -420,7 +420,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="327.3"
+    cx="305.5"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -431,7 +431,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="384.0"
+    cx="357.8"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -442,7 +442,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="440.7"
+    cx="410.2"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -453,7 +453,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="497.3"
+    cx="462.5"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -464,7 +464,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="554.0"
+    cx="514.8"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -475,7 +475,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="610.7"
+    cx="567.1"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -486,7 +486,7 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="667.3"
+    cx="619.4"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
@@ -497,12 +497,23 @@ viewBox="0 0 1100 650">
 </circle>
 
 <circle
-    cx="724.0"
+    cx="671.7"
     cy="424.0"
     r="3.5"
     fill="#57E6B1">
     <title>
         2026-09-24
+        · Activity 0/100
+    </title>
+</circle>
+
+<circle
+    cx="724.0"
+    cy="424.0"
+    r="3.5"
+    fill="#57E6B1">
+    <title>
+        2026-09-25
         · Activity 0/100
     </title>
 </circle>
@@ -516,7 +527,7 @@ viewBox="0 0 1100 650">
     font-weight="700"
     text-anchor="start"
     letter-spacing="1px">
-    13 SNAPSHOTS  ·  VISUAL RANGE 0–5
+    14 SNAPSHOTS  ·  VISUAL RANGE 0–5
 </text>
 
 <rect
